@@ -1,6 +1,6 @@
 // src/pages/Entrada.js
-import React, { useEffect } from 'react';
-import CampoCadastroAluno from '../components/CampoCadastroAluno';
+import React from 'react';
+import CampoCadastro from '../components/CampoCadastro';
 import Titulo from '../components/Titulo';
 import { useNavigate } from 'react-router-dom';
 import Container from '../styles/telaCheia';
@@ -36,7 +36,7 @@ const CadastroAluno = () => {
   return (
     <Container>
       <Titulo titulo={'Cadastre-se'} />
-      <CampoCadastroAluno RegistroCompleto={RegistroCompleto} />
+      <CampoCadastro RegistroCompleto={RegistroCompleto} />
     </Container>
   );
 };

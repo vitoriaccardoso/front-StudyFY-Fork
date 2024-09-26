@@ -1,8 +1,8 @@
 // src/components/Box.js
 import React, { useState } from 'react';
-import InserirInfoAluno from '../CadastrarInfoAluno';
-import InserirDataNascimentoAluno from '../InserirDataNascimentoAluno';
-import InserirMateriaAluno from '../InserirMateriaAluno'
+import InserirInfoAluno from '../CadastrarInfo';
+import InserirDataNascimentoAluno from '../CadastrarDataNascimento';
+import InserirMateriaAluno from '../CadastrarMateria'
 import ContainerCadastro from '../../styles/campoDados'
 
 
