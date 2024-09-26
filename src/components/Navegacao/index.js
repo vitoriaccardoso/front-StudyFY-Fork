@@ -7,17 +7,27 @@ import trofeu from '../../assets/trofeu.png';
 import duvida from '../../assets/duvida.png';
 import notificacao from '../../assets/notificacao.png';
 import mais from '../../assets/mais.png';
+import chat from '../../assets/chat.png';
+import chatIA from '../../assets/chatIA.png';
+import mentoria from '../../assets/mentoria.png';
 
 const AbasGrupoMentoria = () => {
-  const [imgAtiva, setImgAtiva] = useState(null);
+  const [imgAtiva, setImgAtiva] = useState(null); // Índice ativo para as imagens principais
+  const [imgExtraAtiva, setImgExtraAtiva] = useState(null); // Índice ativo para as imagens extras
   const [mostrarImagens, setMostrarImagens] = useState(false);
 
   const handleImgClick = (index) => {
-    setImgAtiva(index);
+    setImgAtiva(index); // Define a imagem ativa nas imagens principais
+    setImgExtraAtiva(null); // Reseta a imagem extra ativa ao clicar na imagem principal
+  };
+
+  const handleImgExtraClick = (index) => {
+    setImgExtraAtiva(index); // Define a imagem ativa nas imagens extras
+    setImgAtiva(null); // Reseta a imagem principal ativa ao clicar na imagem extra
   };
 
   const imagens = [atividades, caderno, trofeu, duvida, notificacao];
-  const imagensExtras = [atividades, caderno, trofeu];
+  const imagensExtras = [chat, chatIA, mentoria];
 
   const handleMaisClick = () => {
     setMostrarImagens((prev) => !prev); // Alterna a visibilidade da div
@@ -37,7 +47,13 @@ const AbasGrupoMentoria = () => {
         ))}
         <C.DivImagensExtras mostrar={mostrarImagens}>
           {imagensExtras.map((imgSrc, index) => (
-            <img key={index} style={{ height: '20%', width: '40%'}} src={imgSrc} alt={`Imagem Extra ${index + 1}`} />
+            <C.ImgDivExtras // Aplicando estilo na imagem extra também
+              key={index}
+              onClick={() => handleImgExtraClick(index)}
+              style={{ backgroundColor: imgExtraAtiva === index ? '#666260' : 'transparent' }}
+            >
+              <img style={{ height: '100%', width: '100%' }} src={imgSrc} alt={`Imagem Extra ${index + 1}`} />
+            </C.ImgDivExtras>
           ))}
         </C.DivImagensExtras>
       </C.DivImgs>

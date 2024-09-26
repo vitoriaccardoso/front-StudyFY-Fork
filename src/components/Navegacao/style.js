@@ -22,6 +22,16 @@ export const ImgDiv = styled.div`
    background-color: #666260;
 `;
 
+export const ImgDivExtras = styled.div`
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   height: 20%;
+   width: 45%;
+   border-radius: 8px;
+   background-color: #666260;
+`;
+
 export const DivImgs = styled.div`
    display: flex;
    align-items: center;

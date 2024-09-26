@@ -25,7 +25,7 @@ const CadastroAluno = () => {
       const response = await axios.post('http://localhost:8080/v1/studyFy/alunos', dadosCompletos);
       console.log('Registro completo com sucesso:', response.data);
 
-      navigate('/login')
+      navigate('/')
       // Coloque aqui a lógica adicional após o registro, como redirecionamento ou mensagem de sucesso
     } catch (error) {
       console.error('Erro ao registrar o aluno:', error);

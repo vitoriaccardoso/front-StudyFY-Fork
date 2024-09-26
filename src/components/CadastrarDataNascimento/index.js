@@ -74,20 +74,22 @@ const InserirDataNascimentoAluno = ({ AvancarEtapa, RetornarDados }) => {
     const ano = anoRef.current.value;
 
     // Formata a data no formato xx-xx-xxxx com zero à esquerda para meses e dias
-    if (isDiaValido(dia, mesNumero, ano)) {
-      // Formata a data no formato xx-xx-xxxx com zero à esquerda para meses e dias
-      const mesFormatado = mesNumero < 10 ? `0${mesNumero}` : mesNumero;
-      const diaFormatado = dia < 10 ? `0${dia}` : dia;
-  
-      const data_nascimento = `${ano}-${mesFormatado}-${diaFormatado}`;
+    if (!isDiaValido(dia, mesNumero, ano)) {
 
-      
+      setMensagemErro('Data inválida');
 
-    // Passando os dados capturados para o componente pai
-    RetornarDados({ data_nascimento });
-    AvancarEtapa();
+  } else if (ano < 1900){
+    setMensagemErro('O ano não deve ser menor que 1900');
   } else {
-    setMensagemErro('Data inválida');
+          // Formata a data no formato xx-xx-xxxx com zero à esquerda para meses e dias
+          const mesFormatado = mesNumero < 10 ? `0${mesNumero}` : mesNumero;
+          const diaFormatado = dia < 10 ? `0${dia}` : dia;
+      
+          const data_nascimento = `${ano}-${mesFormatado}-${diaFormatado}`;
+    
+          // Passando os dados capturados para o componente pai
+          RetornarDados({ data_nascimento });
+          AvancarEtapa();
   }
   };
 

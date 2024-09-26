@@ -1,6 +1,9 @@
 // src/components/Box.js
 import React, { useState } from 'react';
 import * as C from './style';
+import lupa from '../../assets/Lupa.png'
+import fitro from '../../assets/Filtro.png'
+import { height } from '@fortawesome/free-solid-svg-icons/fa0';
 
 const AbasGrupoMentoria = () => {
   const [abaAtiva, setAbaAtiva] = useState(0); // Estado para rastrear a aba ativa
@@ -22,7 +25,15 @@ const AbasGrupoMentoria = () => {
           </C.Aba>
         ))}
       </C.Abas>
-      <C.CampoAba></C.CampoAba>
+      <C.CampoAba>
+        <C.Pesquisa>
+          <C.BarraPesquisa>
+            <img src={lupa} style={{height: '60%', width: '10%'}}></img>
+            <C.InputPesquisa></C.InputPesquisa>
+          </C.BarraPesquisa>
+          <img src={fitro}></img>
+        </C.Pesquisa>
+      </C.CampoAba>
     </C.AbasGrupo>
   );
 };

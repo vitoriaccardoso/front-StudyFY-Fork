@@ -42,3 +42,29 @@ export const CampoAba = styled.div`
    max-height:100%;
    width: 80%;
 `;
+
+export const Pesquisa = styled.div`
+   display: flex;
+   align-items: center;
+   justify-content: space-evenly;
+   width: 100%;
+   height: 20%;
+`
+
+export const BarraPesquisa = styled.div`
+   display: flex;
+   align-items: center;
+   width: 80%;
+   height: 70%;
+   border: solid 1px #d9d9d9;
+   border-radius: 12px;
+   box-shadow: 0 0.5vh 0 0 #d9d9d9;
+   padding-inline: 5%;
+`
+
+export const InputPesquisa = styled.input`
+   border: none;
+   background-color: transparent;
+   width: 100%;
+   height: 100%;
+`
