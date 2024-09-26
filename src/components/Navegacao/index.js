@@ -17,6 +17,7 @@ const AbasGrupoMentoria = () => {
   };
 
   const imagens = [atividades, caderno, trofeu, duvida, notificacao];
+  const imagensExtras = [atividades, caderno, trofeu];
 
   const handleMaisClick = () => {
     setMostrarImagens((prev) => !prev); // Alterna a visibilidade da div
@@ -31,12 +32,12 @@ const AbasGrupoMentoria = () => {
             onClick={() => handleImgClick(index)}
             style={{ backgroundColor: imgAtiva === index ? '#666260' : 'transparent' }}
           >
-            <img style={{ height: '70%', width: '65%' }} src={imgSrc} alt={`Imagem ${index + 1}`} />
+            <img style={{ height: '70%', width: '60%' }} src={imgSrc} alt={`Imagem ${index + 1}`} />
           </C.ImgDiv>
         ))}
         <C.DivImagensExtras mostrar={mostrarImagens}>
-          {imagens.map((imgSrc, index) => (
-            <img key={index} style={{ height: '50px', margin: '0 5px' }} src={imgSrc} alt={`Imagem Extra ${index + 1}`} />
+          {imagensExtras.map((imgSrc, index) => (
+            <img key={index} style={{ height: '20%', width: '40%'}} src={imgSrc} alt={`Imagem Extra ${index + 1}`} />
           ))}
         </C.DivImagensExtras>
       </C.DivImgs>

@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const ContainerNavegacao = styled.div`
    display: flex;
    flex-direction: row;
-   height: 7%;
+   height: 8%;
    width: 100%;
    background-color: #302F2F;
    bottom: 0;
@@ -32,16 +32,17 @@ export const DivImgs = styled.div`
 
 export const DivImagensExtras = styled.div`
    display: flex;
+   flex-direction: column;
    align-items: center;
-   justify-content: center;
-   width:10%;
+   justify-content: space-evenly;
+   height: 300%;
+   width:18%;
    position: absolute; /* Posiciona em relação a DivImgs */
-   bottom: 100%; /* Alinhamento com a parte superior de DivImgs */
+   bottom: 98%; /* Alinhamento com a parte superior de DivImgs */
    right: 0; /* Alinhamento com a parte esquerda de DivImgs */
-   background-color: white;
-   border-radius: 8px;
-   padding: 10px;
-   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+   background-color: #302F2F;
+   border-left: solid 1px #666260;
+   border-top: solid 1px #666260;
    transform: scaleY(${props => props.mostrar ? 1 : 0}); /* Animação de crescimento */
    transform-origin: bottom; /* Origem da transformação */
    transition: transform 0.3s ease-in-out; /* Tempo da animação */

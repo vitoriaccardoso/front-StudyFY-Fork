@@ -4,49 +4,39 @@ import CampoLogin from '../components/CampoLogin';
 import Titulo from '../components/Titulo';
 import Container from '../styles/telaCheia';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 const LoginAluno = () => {
-  const ValidarLogin = async (dadosAluno) => {
+
+  const navigate = useNavigate()
+
+  const RetornarDadosLogin = async (dados, setMensagemErro) => {
     const dadosLogin = {
-      ...dadosAluno,
+      ...dados,
     };
 
-    try {
-      
-      const responseAluno = await axios.get('http://localhost:8080/v1/studyfy/alunos'); // Substitua pelo endpoint da sua API
-      const dadosAlunos = responseAluno.data.aluno;
-      console.log('Dados recebidos da API Alunos:', dadosAlunos);
+    console.log(dadosLogin);
+    
 
-      const responseProfessor = await axios.get('http://localhost:8080/v1/studyfy/professores'); // Substitua pelo endpoint da sua API
-      const dadosProfessores = responseProfessor.data.professores;
-      console.log('Dados recebidos da API Professores:', dadosProfessores);
-      
-      for (let i = 0; i < dadosAlunos.length; i++) {        
-        if (dadosAlunos[i].email === dadosLogin.email && dadosAlunos[i].senha === dadosLogin.senha) {
-          console.log('Logado com sucesso');
-          break;
-        } else {
-          console.log('Erro de login Aluno');
-        }
-      }
-      for (let i = 0; i < dadosProfessores.length; i++) {
-        
-        if (dadosProfessores[i].email === dadosLogin.email && dadosProfessores[i].senha === dadosLogin.senha) {
-          console.log('Logado com sucesso');
-          break;
-        } else {
-          console.log('Erro de login Professor');
-        }
-      }
-    } catch (err) {
-      console.error('Erro ao buscar os dados:', err);
+    try {
+
+      const response = await axios.post('http://localhost:8080/v1/studyFy/login', dadosLogin);
+      console.log('Registro completo com sucesso:', response.data);
+
+      navigate('/grupoMentoria')
+
+    } catch (error) {
+
+      console.error('Erro ao logar o usuario:', error);
+      setMensagemErro('Não foi encontrado nenhum usuário'); // Atualiza a mensagem de erro
+
     }
   };
 
   return (
     <Container>
       <Titulo titulo={'Login'} />
-      <CampoLogin ValidarLogin={ValidarLogin} /> {/* Certifique-se de que CampoLoginAluno está correto */}
+      <CampoLogin RetornarDadosLogin={RetornarDadosLogin} /> {/* Certifique-se de que CampoLoginAluno está correto */}
     </Container>
   );
 };

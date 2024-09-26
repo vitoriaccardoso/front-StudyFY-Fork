@@ -15,20 +15,20 @@ export const CampoPreencher = styled.div`
 `;
 
 export const Campo = styled.div`
-   display: flex;
-   flex-direction: row;
-   align-items: center;
-   padding-inline: 3vw;
-   width: 100%;
-   height: 100%;
-   border: 1px solid #d9d9d9;
-   border-radius: 8px;
-   position: relative; /* Para que o label posicionado absoluto funcione */
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding-inline: 3vw;
+  width: 100%;
+  height: 100%;
+  border: 1px solid #d9d9d9;
+  border-radius: 8px;
+  position: relative; /* Para que o label posicionado absoluto funcione */
+  border-color: ${props => (props.erro ? 'red' : '#d9d9d9')}; /* Borda vermelha se houver erro */
 
-   
-   &:focus-within {
-      border-color: #FEE101; /* Cor desejada quando o input estiver focado */
-   }
+  &:focus-within {
+    border-color: #FEE101; /* Cor desejada quando o input estiver focado */
+  }
 `;
 
 export const EntradaInfo = styled.div`
@@ -86,14 +86,22 @@ export const CampoBotao = styled.div`
 
 export const Botao = styled.div`
    background-color: #fee101;
-   margin-top: 3vh;
    margin-left: auto;
    width: 50%;
-   height: 25%;
-   margin-top: auto;
+   min-height: 25%;
    border-radius: 12px;
    display: flex;
    font-weight: bold;
    align-items: center;
    justify-content: center;
+`
+
+export const EnvioFormuario = styled.div`
+   display: flex;
+   flex-direction: column;
+   align-items: flex-end;
+   justify-content: flex-end;
+   gap: 1vh;
+   height: 100%;
+   width: 100%;
 `
