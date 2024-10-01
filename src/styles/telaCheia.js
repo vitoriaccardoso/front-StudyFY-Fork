@@ -6,6 +6,10 @@ const TelaCheia = styled.div`
   background-color: #f0f0f0; /* Cor de fundo como exemplo */
   display: flex;
   flex-direction: column;
+
+  @media (min-width: 768px) {
+    background-color: #ffffff;
+  }
 `;
 
 export default TelaCheia;

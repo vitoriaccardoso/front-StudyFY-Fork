@@ -9,6 +9,14 @@ export const CampoDados = styled.div`
    margin-bottom: 6vh;
    padding: 5% 10% 5% 5%;
    position: absolute;
+
+   @media(min-width: 768px){
+      height: 85%;
+      width: 30%;
+      border-radius: 12px;
+      box-shadow: 0 0 12px 3px #dedede;
+      padding: 3% 2% 5% 2%;
+   }
 `;
 
 export default CampoDados

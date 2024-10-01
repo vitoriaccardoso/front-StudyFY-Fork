@@ -4,14 +4,22 @@ export const Descricao = styled.span`
    font-size: 5.5vw;
    display: flex;
    flex-direction: column;
+
+   @media (min-width: 768px) {
+      font-size: 1.3vw;
+   }
 `;
 
 export const CampoPreencher = styled.div`
    display: flex;
    flex-direction: column;
    align-items: flex-start;
-   height: 70%;
+   height: 25%;
    gap: 1vh;
+
+   @media (min-width: 768px) {
+      height: 30%;
+   }
 `;
 
 export const Campo = styled.div`
@@ -29,6 +37,18 @@ export const Campo = styled.div`
   &:focus-within {
     border-color: #FEE101; /* Cor desejada quando o input estiver focado */
   }
+
+  @media (min-width: 768px) {
+     height: 30%;
+   }
+`;
+
+export const EsqueceuSenha = styled.span`
+   font-size: 2vw;
+
+   @media (min-width: 768px) {
+      font-size: 1vw;
+   }
 `;
 
 export const EntradaInfo = styled.div`
@@ -36,6 +56,10 @@ export const EntradaInfo = styled.div`
    width: 100%;
    height: 100%;
    padding-left: 5%;
+
+   @media (min-width: 768px) {
+      padding-left: 5%;
+   }
 `;
 
 export const Label = styled.label`
@@ -46,6 +70,10 @@ export const Label = styled.label`
    color: #d9d9d9;
    transition: all 0.3s ease;
    pointer-events: none; /* Para que o label não interfira nos cliques do input */
+
+   @media (min-width: 768px) {
+      font-size: 1.3vw;
+   }
 `;
 
 export const Input = styled.input`
@@ -57,6 +85,10 @@ export const Input = styled.input`
    height: 100%;
    box-sizing: border-box;
 
+   @media (min-width: 768px) {
+      font-size: 1vw;
+   }
+
    &:focus + ${Label},
    &:valid + ${Label} {
       top: -20%;
@@ -66,6 +98,10 @@ export const Input = styled.input`
       background: white;
       padding: 0 2%;
       z-index: 1; /* Para que o label fique acima do input */
+
+      @media (min-width: 768px) {
+         font-size: 1vw;
+      }
    }
 `;
 
@@ -73,11 +109,25 @@ export const CadastroGoogle = styled.div`
    display: flex;
    align-items: center;
    flex-direction: row;
-   gap: 2vw;
+   gap: 4%;
 `
 
 export const DescricaoGoogle = styled.span`
    font-size: 3.5vw;
+
+   @media (min-width: 768px) {
+      font-size: 1vw;
+   }
+`
+
+export const ImgGoogle = styled.img`
+   width: 6vw; 
+   height: 3vh;
+
+   @media (min-width: 768px) {
+      height: 3vh;
+      width: 1.5vw;
+   }
 `
 
 export const CampoBotao = styled.div`
@@ -88,7 +138,8 @@ export const Botao = styled.div`
    background-color: #fee101;
    margin-left: auto;
    width: 50%;
-   min-height: 25%;
+   min-height: 45%;
+   max-height: 45%;
    border-radius: 12px;
    display: flex;
    font-weight: bold;
@@ -102,6 +153,28 @@ export const EnvioFormuario = styled.div`
    align-items: flex-end;
    justify-content: flex-end;
    gap: 1vh;
-   height: 100%;
+   height: 20%;
    width: 100%;
+   margin-top: auto;
+`
+
+export const SemConta = styled.div`
+  display: flex;
+  gap: 3%;
+  width: 100%;
+  justify-content: right;
+  font-size: 3vw; /* Define o tamanho da fonte para todo o texto na div */
+
+  @media (min-width: 768px) {
+     font-size: 1vw;
+   }
+`;
+
+export const Erro = styled.span`
+   font-size: 3.5vw;
+   color: red;
+
+   @media (min-width: 768px) {
+      font-size: 1vw;
+   }
 `

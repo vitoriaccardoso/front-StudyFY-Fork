@@ -5,12 +5,16 @@ import Titulo from '../components/Titulo';
 import { useNavigate } from 'react-router-dom';
 import Container from '../styles/telaCheia';
 import axios from 'axios';
+import { useMediaQuery } from '@mui/material';
+import fundoAmarelo from '../assets/fundo-desktop.png'
+import Fundo from '../styles/fundoDesktop'
 
 const CadastroAluno = () => {
 
   const navigate = useNavigate()
+  let url = ""
 
-  const RegistroCompleto = async (dadosAluno, data_nascimento, materiaSelecionada) => {
+  const RegistroCompleto = async (usuario, dadosAluno, data_nascimento, materiaSelecionada) => {
     const dadosCompletos = {
       ...dadosAluno,
       ...data_nascimento,
@@ -18,11 +22,18 @@ const CadastroAluno = () => {
       materia_id: materiaSelecionada,
     };
 
+    if(usuario == 'aluno'){
+      url = 'http://localhost:8080/v1/studyFy/alunos'
+    } else if (usuario == 'professor'){
+      url = 'http://localhost:8080/v1/studyFy/professores'
+    }
+
     try {
 
+      console.log(url);
       console.log(dadosCompletos);
       // Fazendo um post com os dados completos do aluno
-      const response = await axios.post('http://localhost:8080/v1/studyFy/alunos', dadosCompletos);
+      const response = await axios.post(url, dadosCompletos);
       console.log('Registro completo com sucesso:', response.data);
 
       navigate('/')
@@ -33,9 +44,15 @@ const CadastroAluno = () => {
     }
   };
 
+  const isDesktop = useMediaQuery('(min-width: 768px)');
+
   return (
     <Container>
-      <Titulo titulo={'Cadastre-se'} />
+      {isDesktop ? (
+        <Fundo src={fundoAmarelo}></Fundo>
+      ) : (
+        <Titulo titulo={'Cadastre-se'} />
+      )}
       <CampoCadastro RegistroCompleto={RegistroCompleto} />
     </Container>
   );

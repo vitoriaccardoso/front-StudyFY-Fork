@@ -3,6 +3,8 @@ import * as C from './style';
 import google from '../../assets/google.png';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUser } from '@fortawesome/free-solid-svg-icons';
+import mascote from '../../assets/mascote.png'
+import { useMediaQuery } from '@mui/material';
 
 const InserirInfoAluno = ({ AvancarEtapa, RetornarDados }) => {
   const nomeRef = useRef(null);
@@ -125,10 +127,22 @@ const InserirInfoAluno = ({ AvancarEtapa, RetornarDados }) => {
     return !erroEncontrado;
   };
 
+  const isDesktop = useMediaQuery('(min-width: 768px)');
+
   return (
     <>
       <C.CampoCadastrar>
-        <C.Descricao>Para ter maior desempenho nos seus estudos</C.Descricao>
+      {isDesktop ? (
+        <div style={{ display: 'flex', flexDirection: 'column', height: '20%', alignItems: 'start', gap: '10px'}}>
+          <div style={{ display: 'flex', width: '100%', height: '70%', alignItems: 'center', gap: '3%'}}>
+            <img src={mascote} alt="mascote" style={{ width: '15%', minHeight: '100%' }} />
+            <span style={{ fontSize: '2.5vw' }}>Cadastre-se</span>
+          </div>
+          <C.Descricao>Para ter maior desempenho nos meus estudos</C.Descricao>
+        </div>
+      ) : (
+        <C.Descricao>Para ter maior desempenho nos meus estudos</C.Descricao>
+      )}
         <C.CampoPreencher>
           <C.Campo erro={erros.nome}>
             <FontAwesomeIcon icon={faUser} style={{ marginRight: '0', color: '#FEE101' }} />
@@ -165,14 +179,15 @@ const InserirInfoAluno = ({ AvancarEtapa, RetornarDados }) => {
 
         <C.CadastroGoogle>
           <C.DescricaoGoogle>Ou cadastre-se com: </C.DescricaoGoogle>
-          <img src={google} alt='iconeGoogle' style={{ width: '6vw', height: '3vh' }} />
+          <C.ImgGoogle src={google} alt='iconeGoogle' />
         </C.CadastroGoogle>
-      </C.CampoCadastrar>
 
-      <C.EnvioFormuario>
-        <span style={{color: 'red', fontSize: '3.5vw' }}>{mensagemErro}</span>
-        <C.Botao onClick={AcaoBotao}>Próximo Passo</C.Botao>
-      </C.EnvioFormuario>
+        <C.EnvioFormuario>
+          <C.Erro>{mensagemErro}</C.Erro>
+          <C.Botao onClick={AcaoBotao}>Próximo Passo</C.Botao>
+        </C.EnvioFormuario>
+
+      </C.CampoCadastrar>
     </>
   );
 };

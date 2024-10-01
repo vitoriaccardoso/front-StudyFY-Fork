@@ -5,6 +5,8 @@ import google from '../../assets/google.png';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUser } from '@fortawesome/free-solid-svg-icons';
 import ContainerLogin from '../../styles/campoDados';
+import { useMediaQuery } from '@mui/material';
+import mascote from '../../assets/mascote.png'
 
 const LogarAluno = ({ RetornarDadosLogin }) => { // Corrigido o nome do parâmetro
   const emailRef = useRef(null);
@@ -74,10 +76,22 @@ const LogarAluno = ({ RetornarDadosLogin }) => { // Corrigido o nome do parâmet
     return !erroEncontrado; // Retorna true se não houver erros
   };
 
+  const isDesktop = useMediaQuery('(min-width: 768px)');
+
   return (
     <>
       <ContainerLogin style={{ display: 'flex', flexDirection: 'column', gap: '3vh' }}>
+      {isDesktop ? (
+        <div style={{ display: 'flex', flexDirection: 'column', minHeight: '20%', alignItems: 'start', gap: '10px'}}>
+          <div style={{ display: 'flex', width: '100%', height: '70%', alignItems: 'center'}}>
+            <img src={mascote} alt="mascote" style={{ width: '15%', height: '100%' }} />
+            <span style={{ fontSize: '2.5vw' }}>Login</span>
+          </div>
+          <C.Descricao>Por favor, faça login para continuar</C.Descricao>
+        </div>
+      ) : (
         <C.Descricao>Por favor, faça login para continuar</C.Descricao>
+      )}
         <C.CampoPreencher>
           <C.Campo erro={erros.email}>
             <FontAwesomeIcon icon={faUser} style={{ marginRight: '0', color: '#FEE101' }} />
@@ -93,19 +107,19 @@ const LogarAluno = ({ RetornarDadosLogin }) => { // Corrigido o nome do parâmet
               <C.Label htmlFor="senha">Senha</C.Label>
             </C.EntradaInfo>
           </C.Campo>
-          <span style={{ fontSize: '2vw' }}>Esqueceu a senha?</span>
+          <C.EsqueceuSenha>Esqueceu a senha?</C.EsqueceuSenha>
         </C.CampoPreencher>
         <C.CadastroGoogle>
           <C.DescricaoGoogle>Ou cadastre-se com: </C.DescricaoGoogle>
-          <img src={google} alt='iconeGoogle' style={{ width: '6vw', height: '3vh' }} />
+          <C.ImgGoogle src={google} alt='iconeGoogle' />
         </C.CadastroGoogle>
         <C.EnvioFormuario>
-          <span style={{ color: 'red', fontSize: '3.5vw' }}>{mensagemErro}</span>
+          <C.Erro>{mensagemErro}</C.Erro>
           <C.Botao onClick={AcaoBotao}>Logar</C.Botao>
-          <div style={{ display: 'flex', gap: '3%', width: '100%', justifyContent: 'right', fontSize: '3vw' }}>
+          <C.SemConta>
             <span>Não tem uma conta? </span>
             <Link style={{ color: '#FEE101', fontWeight: 'bold' }} to="/cadastro">Cadastre-se</Link>
-          </div>
+          </C.SemConta>
         </C.EnvioFormuario>
       </ContainerLogin>
     </>

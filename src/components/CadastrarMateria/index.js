@@ -2,12 +2,29 @@
 import React, { useState, useEffect } from 'react'; // Certifique-se de importar o useEffect
 import axios from 'axios'; // Certifique-se de importar o axios para as requisições
 import * as C from './style';
+import mascote from '../../assets/mascote.png'
+import { useMediaQuery } from '@mui/material';
 
 const PesquisaAluno = ({ AvancarEtapa, RetornarDados }) => {
   // Estado para armazenar as matérias selecionadas
   const [selecoes, setSelecoes] = useState([]);
   // Estado para armazenar as matérias vindas da API
   const [materias, setMaterias] = useState([]);
+
+  const teste = [
+    {
+      nome_materia: 'oioi',
+      id: '1'
+    },
+    {
+      nome_materia: 'aaaaaa',
+      id: '2'
+    }
+  ]
+
+  useEffect(() => {
+    setMaterias(teste); // Simulação de API
+  }, []); // Executa apenas uma vez quando o componente é montado
 
   useEffect(() => {
     // Função para buscar os dados da API
@@ -57,10 +74,22 @@ const PesquisaAluno = ({ AvancarEtapa, RetornarDados }) => {
     AvancarEtapa();
   };
 
+  const isDesktop = useMediaQuery('(min-width: 768px)');
+
   return (
     <>
       <C.CampoCadastrar>
-        <C.Descricao>Escolha no máximo 2 matérias que queira estudar</C.Descricao>
+      {isDesktop ? (
+        <div style={{ display: 'flex', flexDirection: 'column', height: '20%', alignItems: 'start', gap: '10px'}}>
+          <div style={{ display: 'flex', width: '100%', height: '70%', alignItems: 'center', gap: '3%'}}>
+            <img src={mascote} alt="mascote" style={{ width: '15%', minHeight: '100%' }} />
+            <span style={{ fontSize: '2.5vw' }}>Cadastre-se</span>
+          </div>
+          <C.Descricao>Escolha no máximo 2 matérias que queira estuda</C.Descricao>
+        </div>
+      ) : (
+        <C.Descricao>Escolha no máximo 2 matérias que queira estuda</C.Descricao>
+      )}
         <C.Campos>
           {materias.map((materia) => (
             <C.Materia key={materia.id}>
@@ -73,8 +102,11 @@ const PesquisaAluno = ({ AvancarEtapa, RetornarDados }) => {
             </C.Materia>
           ))}
         </C.Campos>
-      </C.CampoCadastrar>
-      <C.Botao onClick={AcaoBotao}>Próximo Passo</C.Botao>
+      <C.EnvioFormuario>
+          <C.Botao onClick={AcaoBotao}>Próximo Passo</C.Botao>
+      </C.EnvioFormuario>
+    </C.CampoCadastrar>
+
     </>
   );
 };

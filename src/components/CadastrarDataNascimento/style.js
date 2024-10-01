@@ -1,30 +1,5 @@
 import styled from "styled-components";
 
-export const CampoCadastrar = styled.div`
-   height: 80%;
-   background-color: 28
-   width: 100%;
-   justify-content: left;
-   display: flex;
-   flex-direction: column;
-   gap: 3vh;
-`
-export const Descricao = styled.span`
-   font-size: 5.5vw;
-   display: flex;
-   flex-direction: column;
-`;
-
-export const CampoPreencher = styled.div`
-   display: flex;
-   flex-direction: column;
-   align-items: flex-start;
-   height: 50%;
-   width: 100%;
-   background-color: green;
-   gap: 1vh;
-`;
-
 export const Campos = styled.div`
    display: flex;
    flex-direction: row;
@@ -33,6 +8,10 @@ export const Campos = styled.div`
    width: 100%;
    height: 30%;
    gap: 2vw;
+
+   @media (min-width: 768px) {
+      height: 50%;
+    }
 
 `;
 
@@ -43,6 +22,10 @@ export const div = styled.div`
    justify-content: center;
    width: 100%;
    height: 100%;
+
+   @media (min-width: 768px) {
+      height: 50%;
+    }
 `;
 
 export const Dia = styled.div`
@@ -93,6 +76,10 @@ export const Ano = styled.div`
 
 export const NomeEntrada = styled.div`
     font-size: 4vw;
+
+    @media (min-width: 768px) {
+       font-size: 2vw;
+    }
 `
 
 export const EntradaInfo = styled.div`
@@ -112,35 +99,9 @@ export const EntradaInfo = styled.div`
    }
 `;
 
-
-export const Input = styled.input`
-    height: 60%;
-    width: 50%;
-    border: none;
-    background-color: transparent;
-
-    ::placeholder {
-        font-size: 1vw; /* Ajuste o tamanho conforme necessário */
-        color: #a9a9a9; /* Exemplo de cor para o placeholder */
-    }
-`;
-
-export const Botao = styled.div`
-   background-color: #fee101;
-   margin-top: 3vh;
-   margin-left: auto;
-   width: 50%;
-   height: 10%;
-   border-radius: 12px;
-   display: flex;
-   font-weight: bold;
-   align-items: center;
-   justify-content: center;
-`
-
 export const Dropdown = styled.ul`
   position: absolute;
-  top: 20px; /* Ajuste conforme necessário */
+  top: 20%; /* Ajuste conforme necessário */
   width: 30%;
   max-height: 150px;
   overflow-y: auto;
@@ -163,4 +124,120 @@ export const DropdownItem = styled.li`
 
 export const MensagemErro = styled.span`
   font-size: 3vw;
-  color: red;`
+  color: red;
+`
+
+export const CampoCadastrar = styled.div`
+   height: 100%;
+   width: 100%;
+   justify-content: left;
+   display: flex;
+   flex-direction: column;
+   gap: 3vh;
+
+   @media (min-width: 768px) {
+      gap: 4vh;
+   }
+`
+
+export const Input = styled.input`
+    height: 60%;
+    width: 50%;
+    border: none;
+    background-color: transparent;
+
+    ::placeholder {
+        font-size: 1vw; /* Ajuste o tamanho conforme necessário */
+        color: #a9a9a9; /* Exemplo de cor para o placeholder */
+    }
+`;
+
+export const Descricao = styled.span`
+   font-size: 5.5vw;
+   display: flex;
+   flex-direction: column;
+
+   @media (min-width: 768px) {
+      font-size: 1.3vw;
+   }
+`;
+
+export const CadastroGoogle = styled.div`
+   display: flex;
+   align-items: center;
+   flex-direction: row;
+   gap: 4%;
+`
+
+export const DescricaoGoogle = styled.span`
+   font-size: 3.5vw;
+
+   @media (min-width: 768px) {
+      font-size: 1vw;
+   }
+`
+
+export const ImgGoogle = styled.img`
+   width: 6vw; 
+   height: 3vh;
+
+   @media (min-width: 768px) {
+      height: 3vh;
+      width: 1.5vw;
+   }
+`
+
+export const CampoBotao = styled.div`
+   width: 100%
+`
+
+export const Botao = styled.div`
+   background-color: #fee101;
+   margin-left: auto;
+   width: 50%;
+   min-height: 60%;
+   max-height: 60%;
+   border-radius: 12px;
+   display: flex;
+   font-weight: bold;
+   align-items: center;
+   justify-content: center;
+`
+
+export const EnvioFormuario = styled.div`
+   display: flex;
+   flex-direction: column;
+   align-items: flex-end;
+   justify-content: flex-end;
+   gap: 1vh;
+   height: 25%;
+   width: 100%;
+   margin-top: auto;
+
+   @media (min-width: 768px) {
+      height: 16%;
+    }
+`
+
+export const SemConta = styled.div`
+  display: flex;
+  gap: 3%;
+  width: 100%;
+  justify-content: right;
+  font-size: 3vw; /* Define o tamanho da fonte para todo o texto na div */
+
+  @media (min-width: 768px) {
+     font-size: 1vw;
+   }
+`;
+
+export const Erro = styled.span`
+   font-size: 3.5vw;
+   color: red;
+
+   @media (min-width: 768px) {
+      font-size: 1vw;
+   }
+`
+
+

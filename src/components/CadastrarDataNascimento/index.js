@@ -3,6 +3,8 @@ import React, { useState, useRef, useEffect } from 'react';
 import * as C from './style';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowDown } from '@fortawesome/free-solid-svg-icons';
+import mascote from '../../assets/mascote.png'
+import { useMediaQuery } from '@mui/material';
 
 const InserirDataNascimentoAluno = ({ AvancarEtapa, RetornarDados }) => {
   const [menuMesAberto, setMenuMesAberto] = useState(false);
@@ -93,10 +95,22 @@ const InserirDataNascimentoAluno = ({ AvancarEtapa, RetornarDados }) => {
   }
   };
 
+  const isDesktop = useMediaQuery('(min-width: 768px)');
+
   return (
     <>
       <C.CampoCadastrar>
+      {isDesktop ? (
+        <div style={{ display: 'flex', flexDirection: 'column', height: '20%', alignItems: 'start', gap: '10px'}}>
+          <div style={{ display: 'flex', width: '100%', height: '70%', alignItems: 'center', gap: '3%'}}>
+            <img src={mascote} alt="mascote" style={{ width: '15%', minHeight: '100%' }} />
+            <span style={{ fontSize: '2.5vw' }}>Cadastre-se</span>
+          </div>
+          <C.Descricao>Em que ano você nasceu?</C.Descricao>
+        </div>
+      ) : (
         <C.Descricao>Em que ano você nasceu?</C.Descricao>
+      )}
         <C.div>
           <C.Campos>
             <C.Dia>
@@ -138,10 +152,13 @@ const InserirDataNascimentoAluno = ({ AvancarEtapa, RetornarDados }) => {
               </C.EntradaInfo>
             </C.Ano>
           </C.Campos>
-          <C.MensagemErro>{mensagemErro}</C.MensagemErro>
         </C.div>
-      </C.CampoCadastrar>
-      <C.Botao onClick={AcaoBotao}>Próximo Passo</C.Botao>
+      <C.EnvioFormuario>
+        <C.Erro>{mensagemErro}</C.Erro>
+        <C.Botao onClick={AcaoBotao}>Próximo Passo</C.Botao>
+      </C.EnvioFormuario>
+    </C.CampoCadastrar>
+
     </>
   );
 };

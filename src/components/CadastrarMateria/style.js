@@ -8,11 +8,20 @@ export const CampoCadastrar = styled.div`
    display: flex;
    flex-direction: column;
    gap: 3vh;
+
+   @media (min-width: 768px) {
+      gap: 7vh;
+      height: 100%;
+   }
 `
 export const Descricao = styled.span`
    font-size: 5.5vw;
    display: flex;
    flex-direction: column;
+
+   @media (min-width: 768px) {
+      font-size: 1.3vw;
+   }
 `;
 
 export const CampoPreencher = styled.div`
@@ -33,6 +42,10 @@ export const Campos = styled.div`
    width: 100%;
    height: 100%;
    gap: 2vh 3vw;
+
+   @media (min-width: 768px) {
+      height: 100%;
+   }
 `;
 
 export const Materia = styled.div`
@@ -49,17 +62,32 @@ export const CheckBox = styled.input`
 
 export const NomeMateria = styled.span`
    font-size: 4vw;
+
+   @media (min-width: 768px) {
+      font-size: 2vw;
+   }
 `
 
 export const Botao = styled.div`
    background-color: #fee101;
-   margin-top: 3vh;
    margin-left: auto;
    width: 50%;
-   height: 10%;
+   min-height: 100%;
+   max-height: 100%;
    border-radius: 12px;
    display: flex;
    font-weight: bold;
    align-items: center;
    justify-content: center;
+`
+
+export const EnvioFormuario = styled.div`
+   display: flex;
+   flex-direction: column;
+   align-items: flex-end;
+   justify-content: flex-end;
+   gap: 1vh;
+   min-height: 10%;
+   width: 100%;
+   margin-top: auto;
 `

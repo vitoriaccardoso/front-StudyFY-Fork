@@ -4,27 +4,35 @@ import InserirInfoAluno from '../CadastrarInfo';
 import InserirDataNascimentoAluno from '../CadastrarDataNascimento';
 import InserirMateriaAluno from '../CadastrarMateria'
 import ContainerCadastro from '../../styles/campoDados'
-
+import AlunoProfessor from '../../components/AlunoProfessor'
 
 const CampoCadastroAluno = ({ RegistroCompleto }) => {
   const [step, setStep] = useState(1);
   const [dadosAluno, setDadosAluno] = useState({});
   const [dataNascimento, setDataNascimento] = useState({});
+  const [usuario, setdadosUsuario] = useState("")
   const [materiaSelecionada, setMateriaSelecionada] = useState([]);
 
   const AvancarEtapa = () => {
-    if (step < 3) {
+    if (step < 4) {
+      console.log('ioiioioi');
+      
       setStep(step + 1);
     } else {
       // Use uma função de callback para garantir que o estado esteja atualizado
       setMateriaSelecionada((prevMaterias) => {
         console.log('Estado materiaSelecionada dentro do callback antes do RegistroCompleto:', prevMaterias);
-        RegistroCompleto(dadosAluno, dataNascimento, prevMaterias);
+        RegistroCompleto(usuario, dadosAluno, dataNascimento, prevMaterias);
       });
     }
   };
 
-  const AtualizarInfoAluno = (dados) => {
+  const AtualizarAlunoProfessor = (dados) => {
+    setdadosUsuario(dados)
+    console.log('ele é: ' + dados);
+  }
+
+  const AtualizarInfoUsuario = (dados) => {
     setDadosAluno(dados);
     console.log('Dados aluno:', dados);
   };
@@ -42,13 +50,16 @@ const CampoCadastroAluno = ({ RegistroCompleto }) => {
   return (
     <ContainerCadastro>
       {step === 1 && (
-        <InserirInfoAluno AvancarEtapa={AvancarEtapa} RetornarDados={AtualizarInfoAluno} />
+        <AlunoProfessor AvancarEtapa={AvancarEtapa} RetornarDados={AtualizarAlunoProfessor} />
       )}
       {step === 2 && (
-        <InserirDataNascimentoAluno AvancarEtapa={AvancarEtapa} RetornarDados={AtualizarDataNascimentoAluno} />
+        <InserirInfoAluno AvancarEtapa={AvancarEtapa} RetornarDados={AtualizarInfoUsuario} />
       )}
       {step === 3 && (
-        <InserirMateriaAluno AvancarEtapa={AvancarEtapa} RetornarDados={AtualizarMateriaAluno} />
+          <InserirDataNascimentoAluno AvancarEtapa={AvancarEtapa} RetornarDados={AtualizarDataNascimentoAluno} />
+      )}
+      {step === 4 && (
+          <InserirMateriaAluno AvancarEtapa={AvancarEtapa} RetornarDados={AtualizarMateriaAluno} />
       )}
     </ContainerCadastro>
   );
