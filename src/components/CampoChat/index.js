@@ -2,14 +2,14 @@ import React, { useRef, useState } from 'react';
 import * as C from './style';
 import mascote from '../../assets/mascote.png'
 import './styles.css'
+import Titulo from '../Titulo';
 
-const CampoChat = () => {
+const CampoChat = ({titulo}) => {
 
   return (
     <>
     <C.Campo>
-        <C.mascote src={mascote}></C.mascote>
-        <span style={{textAlign: 'center', width: '70%', fontFamily: 'Poppins, sans-serif', fontWeight: 'bold'}}>Converse com nosso caabreso para tirar dúvidas superficiais</span>
+        <span style={{textAlign: 'center', width: '70%', fontFamily: 'Poppins, sans-serif', fontWeight: 'bold'}}>{titulo}</span>
     </C.Campo>
     </>
   );
