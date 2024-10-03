@@ -5,6 +5,7 @@ import Cadastro from './pages/Cadastro';
 import Login from './pages/Login';
 import GrupoMentoria from './pages/GrupoMentoria';
 import ChatIA from './pages/chatIA'
+import ChatPrivado from './pages/ChatPrivado'
 import * as C from './styles/app';
 
 function App() {
@@ -13,7 +14,7 @@ function App() {
     <C.Container>
       <Router>
         <Routes>
-          <Route exact path='/' element= {<ChatIA />} />
+          <Route exact path='/' element= {<ChatIA/>} />
           <Route exact path='/cadastro' element={<Cadastro />}/>
           <Route exact path='/grupoMentoria' element={<GrupoMentoria />}/>
         </Routes>

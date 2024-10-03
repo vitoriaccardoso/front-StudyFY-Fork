@@ -13,3 +13,4 @@ export const mascote = styled.img`
    height: 19%;
    width: 27%;
 `
+
