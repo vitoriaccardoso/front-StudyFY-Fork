@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Cadastro from './pages/Cadastro';
 import Login from './pages/Login';
 import GrupoMentoria from './pages/GrupoMentoria';
+import ChatIA from './pages/chatIA'
 import * as C from './styles/app';
 
 function App() {
@@ -12,7 +13,7 @@ function App() {
     <C.Container>
       <Router>
         <Routes>
-          <Route exact path='/' element= {<Login />} />
+          <Route exact path='/' element= {<ChatIA />} />
           <Route exact path='/cadastro' element={<Cadastro />}/>
           <Route exact path='/grupoMentoria' element={<GrupoMentoria />}/>
         </Routes>
