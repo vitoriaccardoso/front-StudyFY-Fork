@@ -1,8 +1,5 @@
-import React, { useRef, useState } from 'react';
+import React from 'react';
 import * as C from './style';
-import google from '../../assets/google.png';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faUser } from '@fortawesome/free-solid-svg-icons';
 import mascote from '../../assets/mascote.png'
 import { useMediaQuery } from '@mui/material';
 

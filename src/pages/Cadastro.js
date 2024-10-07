@@ -22,9 +22,9 @@ const CadastroAluno = () => {
       materia_id: materiaSelecionada,
     };
 
-    if(usuario == 'aluno'){
+    if(usuario === 'aluno'){
       url = 'http://localhost:8080/v1/studyFy/alunos'
-    } else if (usuario == 'professor'){
+    } else if (usuario === 'professor'){
       url = 'http://localhost:8080/v1/studyFy/professores'
     }
 

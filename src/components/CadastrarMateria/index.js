@@ -11,18 +11,19 @@ const PesquisaAluno = ({ AvancarEtapa, RetornarDados }) => {
   // Estado para armazenar as matérias vindas da API
   const [materias, setMaterias] = useState([]);
 
-  const teste = [
-    {
-      nome_materia: 'oioi',
-      id: '1'
-    },
-    {
-      nome_materia: 'aaaaaa',
-      id: '2'
-    }
-  ]
-
   useEffect(() => {
+
+    const teste = [
+      {
+        nome_materia: 'oioi',
+        id: '1'
+      },
+      {
+        nome_materia: 'aaaaaa',
+        id: '2'
+      }
+    ]
+
     setMaterias(teste); // Simulação de API
   }, []); // Executa apenas uma vez quando o componente é montado
 

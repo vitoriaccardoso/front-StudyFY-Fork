@@ -1,6 +1,5 @@
-import React, { useRef, useState } from 'react';
+import React from 'react';
 import * as C from './style';
-import mascote from '../../assets/mascote.png'
 import ImgEnviar from '../../assets/seta.png';
 
 const CampoChat = () => {

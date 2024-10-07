@@ -6,6 +6,7 @@ export const AbasGrupo = styled.div`
    justify-content: flex-start;
    align-items: center;
    height: 60%;
+   max-height: 60%;
    padding: 0% 5% 0% 5%;
    margin-top: 2vh;
    gap: 2vh;
@@ -18,6 +19,7 @@ export const Abas = styled.div`
    justify-content: space-between;
    align-items: center;
    min-height: 10%;
+   height: 10%;
    width: 100%;
 `;
 
@@ -39,8 +41,9 @@ export const CampoAba = styled.div`
    flex-direction: column;
    border: solid 3px #d9d9d9;
    min-height: 50%;
-   max-height:100%;
-   width: 80%;
+   max-height: 50%;
+   width: 100%;
+   overflow-y: auto;
 `;
 
 export const Pesquisa = styled.div`
@@ -49,6 +52,7 @@ export const Pesquisa = styled.div`
    justify-content: space-evenly;
    width: 100%;
    height: 20%;
+   max-height: 20%;
 `
 
 export const BarraPesquisa = styled.div`

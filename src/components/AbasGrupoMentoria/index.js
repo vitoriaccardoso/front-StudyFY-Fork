@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import * as C from './style';
 import lupa from '../../assets/Lupa.png'
 import fitro from '../../assets/Filtro.png'
-import { height } from '@fortawesome/free-solid-svg-icons/fa0';
+import AbaMembros from '../MembrosGrupo';
 
 const AbasGrupoMentoria = () => {
   const [abaAtiva, setAbaAtiva] = useState(0); // Estado para rastrear a aba ativa
@@ -26,13 +26,14 @@ const AbasGrupoMentoria = () => {
         ))}
       </C.Abas>
       <C.CampoAba>
-        <C.Pesquisa>
+        {/* <C.Pesquisa>
           <C.BarraPesquisa>
-            <img src={lupa} style={{height: '60%', width: '10%'}}></img>
+            <img src={lupa} alt='lupa' style={{height: '60%', width: '10%'}}></img>
             <C.InputPesquisa></C.InputPesquisa>
           </C.BarraPesquisa>
-          <img src={fitro}></img>
-        </C.Pesquisa>
+          <img src={fitro} alt='filtro'></img>
+        </C.Pesquisa> */}
+        <AbaMembros />
       </C.CampoAba>
     </C.AbasGrupo>
   );

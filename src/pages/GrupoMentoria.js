@@ -7,7 +7,7 @@ import Navegacao from '../components/Navegacao'
 const GrupoMentoria = () => {
 
   return (
-    <Container style={{backgroundColor: 'white', alignItems: 'center', paddingTop: '1vh'}}>
+    <Container style={{overflow: 'none', maxHeight: '100vh', backgroundColor: 'white', alignItems: 'center', paddingTop: '1vh'}}>
         <span>Grupo de mentoria</span>
       <InfoGrupoMentoria />
       <AbasGrupoMentoria />

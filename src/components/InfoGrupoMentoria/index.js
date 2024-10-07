@@ -10,7 +10,7 @@ const InfoGrupoMentoria = () => {
     <C.InfoGrupo>
         <C.IntroducaoGrupo>
             <C.IconeMembros>
-                <img alt='foto do grupo' src={fotoGrupo} style={{width: '60%', height: '60%'}}></img>
+                <img src={fotoGrupo} alt='foto do grupo' style={{width: '60%', height: '60%'}}></img>
                 <span style={{fontWeight: 'bold', fontSize: '3.5vw'}}>membros 10/30</span>
             </C.IconeMembros>
             <C.DescricaoDiv>
@@ -27,7 +27,7 @@ const InfoGrupoMentoria = () => {
             <C.DadosMentor>
               <img alt='foto do mentor' style={{height: '80%', width: '22%' }} src={fotoMentor}></img>
               <C.InfoMentor>
-                <h4 style={{fontSize: '4vw'}}>Matheus Noronha</h4>
+                <h4 style={{fontSize: '3.5vw'}}>Matheus Noronha...</h4>
                 <span style={{fontSize: '2.5vw'}}>20 membros ajudados</span>
               </C.InfoMentor>
             </C.DadosMentor>
@@ -36,11 +36,11 @@ const InfoGrupoMentoria = () => {
               <C.Barra></C.Barra>
               <C.Avaliacao>
                 <C.Estrelas>
-                  <img style={{height: '100%', width: '20%'}} src={estrela}></img>
-                  <img style={{height: '100%', width: '20%'}} src={estrela}></img>
-                  <img style={{height: '100%', width: '20%'}} src={estrela}></img>
-                  <img style={{height: '100%', width: '20%'}} src={estrela}></img>
-                  <img style={{height: '100%', width: '20%'}} src={estrela}></img>
+                  <img style={{height: '100%', width: '20%'}} alt='estrela' src={estrela}></img>
+                  <img style={{height: '100%', width: '20%'}} alt='estrela' src={estrela}></img>
+                  <img style={{height: '100%', width: '20%'}} alt='estrela' src={estrela}></img>
+                  <img style={{height: '100%', width: '20%'}} alt='estrela' src={estrela}></img>
+                  <img style={{height: '100%', width: '20%'}} alt='estrela' src={estrela}></img>
                 </C.Estrelas>
                 <span style={{fontSize: '2vw'}}>(214) avaliações</span>
               </C.Avaliacao>
