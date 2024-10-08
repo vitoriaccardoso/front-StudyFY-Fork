@@ -2,7 +2,6 @@ import styled from "styled-components";
 
 export const CampoCadastrar = styled.div`
    height: 80%;
-   background-color: 28
    width: 100%;
    justify-content: left;
    display: flex;

@@ -13,4 +13,6 @@ export const Container = styled.div`
 
 export const Titulocadastro = styled.h1`
    font-size: 10vw;
+   width: 70%;
+   text-align: center;
 `;

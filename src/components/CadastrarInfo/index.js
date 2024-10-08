@@ -2,7 +2,7 @@ import React, { useRef, useState } from 'react';
 import * as C from './style';
 import google from '../../assets/google.png';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faUser, faArrowUp } from '@fortawesome/free-solid-svg-icons';
+import { faUser, faEnvelope } from '@fortawesome/free-solid-svg-icons';
 import mascote from '../../assets/mascote.png'
 import { useMediaQuery } from '@mui/material';
 
