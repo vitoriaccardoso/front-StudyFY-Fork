@@ -15,7 +15,7 @@ export const CampoCadastrar = styled.div`
    }
 `
 export const Descricao = styled.span`
-   font-size: 5vw;
+   font-size: 4.5vw;
    display: flex;
    flex-direction: column;
 
@@ -28,19 +28,19 @@ export const CampoPreencher = styled.div`
    display: flex;
    flex-direction: column;
    align-items: flex-start;
-   height: 35%;
+   height: 40%;
    width: 100%;
-   background-color: green;
-   gap: 1vh;
+   justify-content: space-around;
+   margin-top: 8%;
 `;
 
-export const Campo = styled.div`
+export const CampoEmail = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
   padding-inline: 3vw;
   width: 100%;
-  height: 100%;
+  height: 30%;
   border: 1px solid #d9d9d9;
   border-radius: 8px;
   position: relative; /* Para que o label posicionado absoluto funcione */
@@ -49,6 +49,19 @@ export const Campo = styled.div`
   &:focus-within {
     border-color: #FEE101; /* Cor desejada quando o input estiver focado */
   }
+
+  @media (min-width: 768px) {
+     height: 22%;
+   }
+`;
+
+export const CampoCodigo = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
+  height: 25%;
+  justify-content: space-evenly;
 
   @media (min-width: 768px) {
      height: 22%;
@@ -109,6 +122,22 @@ export const EntradaInfo = styled.div`
    }
 `;
 
+export const EntradaInfoCodigo = styled.div`
+   position: relative;
+   width: 40%;
+   height: 100%;
+   border-radius: 8px;
+   border: solid 1px #d9d9d9;
+
+   &:focus-within {
+      border-color: #FEE101; /* Cor desejada quando o input estiver focado */
+   }
+
+   @media (min-width: 768px) {
+      padding-left: 5%;
+   }
+`;
+
 export const Materia = styled.div`
    display: flex;
    flex-direction: row;
@@ -129,26 +158,39 @@ export const NomeMateria = styled.span`
    }
 `
 
-export const Botao = styled.div`
+export const BotaoCodigo = styled.div`
    background-color: #fee101;
-   margin-left: auto;
    width: 50%;
-   min-height: 100%;
-   max-height: 100%;
-   border-radius: 12px;
+   height: 30%;
+   border-radius: 8px;
    display: flex;
-   font-weight: bold;
    align-items: center;
    justify-content: center;
 `
 
-export const EnvioFormuario = styled.div`
+export const BotaoEmail = styled.div`
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   height: 100%;
+   width: 40%;
+   background-color: #FEE101;
+   border-radius: 8px;
+`
+
+export const MensagemErro = styled.span`
+   color: red;
+   font-size: 3vw;
+`
+
+export const CampoEnvioFormulario = styled.div`
    display: flex;
    flex-direction: column;
-   align-items: flex-end;
-   justify-content: flex-end;
-   gap: 1vh;
-   min-height: 10%;
-   width: 100%;
-   margin-top: auto;
+   height: 35%;
+   justify-content: space-evenly;
+   align-items: center;
+`
+
+export const SenhaRecuperada = styled.span`
+   font-size: 4vw;
 `

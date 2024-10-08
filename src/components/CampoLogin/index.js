@@ -107,7 +107,9 @@ const LogarAluno = ({ RetornarDadosLogin }) => { // Corrigido o nome do parâmet
               <C.Label htmlFor="senha">Senha</C.Label>
             </C.EntradaInfo>
           </C.Campo>
-          <C.EsqueceuSenha>Esqueceu a senha?</C.EsqueceuSenha>
+          <C.EsqueceuSenha>
+            <Link to={'/'}>Esqueceu a senha?</Link>
+          </C.EsqueceuSenha>
         </C.CampoPreencher>
         <C.CadastroGoogle>
           <C.DescricaoGoogle>Ou cadastre-se com: </C.DescricaoGoogle>
