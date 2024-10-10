@@ -3,78 +3,120 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import MudarSenha from '../../styles/campoDados';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faEnvelope, faLock } from '@fortawesome/free-solid-svg-icons';
-import { Link, Navigate } from 'react-router-dom';
+import { faLock } from '@fortawesome/free-solid-svg-icons';
+import axios from 'axios';
 
 const CampoMudarSenha = () => {
+  const [senha, setSenha] = useState("");
+  const [senhaAlterada, setSenhaAlterada] = useState("");
+  const [confirmarSenha, setConfirmarSenha] = useState("");
+  const [mensagemErro, setMensagemErro] = useState('');
+  const [id, setIdUsuario] = useState('');
+  const [email, setEmailUsuario] = useState('');
+  const [token, setTokenUsuario] = useState('');
+  const [senhaUsuario, setSenhaUsuario] = useState('');
+  const navigate = useNavigate();
 
-    const [senha, setSenha] = useState("");
-    const [senhaAlterada, setSenhaAlterada] = useState("");
-    const [confirmarSenha, setConfirmarSenha] = useState("");
-    const [mensagemErro, setMensagemErro] = useState('');
-    const [senhaUsuario, setSenhaUsuario] = useState('');
-    const [erro, setErro] = useState('')
-    const navigate = useNavigate()
+  // Função para obter os parâmetros da URL
+  const obterParametros = () => {
+    const params = new URLSearchParams(window.location.search);
+    const idParam = params.get('id');
+    const emailParam = params.get('email');
+    const tokenParam = params.get('token');
 
+    if (idParam) {
+      setIdUsuario(idParam);
+      setEmailUsuario(emailParam);
+      setTokenUsuario(tokenParam);
+      pegarSenhaUsuario(idParam); // Chama a função para pegar a senha do usuário
+    }
+  };
 
-    useEffect(() => {
-  
-      setSenhaUsuario('123'); // Simulação de API
-    }, []); // Executa apenas uma vez quando o componente é montado
+  useEffect(() => {
+    obterParametros();
+  }, []);
 
+  const pegarSenhaUsuario = async (id) => {
+    const idJSON = { id };
 
+    try {
+      const response = await axios.post(`http://localhost:8080/v1/studyFy/get-senha`, idJSON);
+      setSenhaUsuario(response.data.senha); // Armazena a senha do usuário
+      console.log('Senha do usuário:', response.data.senha);
+    } catch (error) {
+      console.error('Erro ao pegar senha:', error);
+    }
+  };
 
-    const atualizarSenha = (evento) => {
-        setSenha(evento.target.value);
-    };
-    const atualizarSenhaAlterada = (evento) => {
-      setSenhaAlterada(evento.target.value);
-    };
-    const atualizarConfirmarSenha = (evento) => {
-      setConfirmarSenha(evento.target.value);
-    };
+  const atualizarSenha = (evento) => setSenha(evento.target.value);
+  const atualizarSenhaAlterada = (evento) => setSenhaAlterada(evento.target.value);
+  const atualizarConfirmarSenha = (evento) => setConfirmarSenha(evento.target.value);
 
-    const mudarSenha = () => {
-
-      if(validarSenha(senha, senhaAlterada, confirmarSenha)){
-        setMensagemErro('')
-        console.log('senha trocada');
-        navigate('/login')
+  const mudarSenha = async () => {
+    if (validarSenha()) {
+      setMensagemErro('');
+      if(await alterarSenha()){
+        navigate('/login');
       }
     }
+  };
 
-    const validarSenha = (senha, senhaAlterada, confirmarSenha) => {
-      console.log(senha);
-      
-      if(senha === ''){
-        setMensagemErro('O campo senha atual não pode estar vazio')
-      } else if (senhaAlterada === ''){
-        setMensagemErro('O campo senha alterada não pode estar vazio')
-      } else if (confirmarSenha === ''){
-        setMensagemErro('O campo confirmar senha não pode estar vazio')
-      } else if(senha != senhaUsuario){
-        setMensagemErro("Sua senha atual esta incorreta")
-      } else if (senhaAlterada != confirmarSenha){
-        setMensagemErro("Suas senhas aqui estão diferentes")
-      } else if (senha.includes('"') || senha.includes('"')){
-        setMensagemErro("O campo senha atual não pode conter o uso de aspas no campo")
-      } else if (senhaAlterada.includes('"') || senhaAlterada.includes("'")){
-        setMensagemErro("O campo senha alterada não pode conter o uso de aspas no campo")
-      } else if (senhaUsuario.includes('"') || senhaUsuario.includes("'")){
-        setMensagemErro("O campo confirmar senha não pode conter o uso de aspas no campo")
-      } else {
-        return true
-      }
+  const alterarSenha = async () => {
+
+    const senhaJSON = {
+      novaSenha: senhaAlterada
     }
+
+    console.log(senhaAlterada);
+    console.log(senhaJSON);
+    console.log(id);
+    
+    try {
+      await axios.put(`http://localhost:8080/v1/studyFy/aluno-senha/${id}`, senhaJSON);
+      console.log('Senha alterada com sucesso');
+    } catch (error) {
+      console.error('Erro ao alterar senha:', error);
+      setMensagemErro('Houve um erro ao alterar a senha');
+    }
+  };
+
+  const validarSenha = () => {
+    if (!senha) {
+      setMensagemErro('O campo senha atual não pode estar vazio');
+      return false;
+    }
+    if (!senhaAlterada) {
+      setMensagemErro('O campo nova senha não pode estar vazio');
+      return false;
+    }
+    if (!confirmarSenha) {
+      setMensagemErro('O campo confirmar nova senha não pode estar vazio');
+      return false;
+    }
+    if (senha !== senhaUsuario) {
+      setMensagemErro("Sua senha atual está incorreta");
+      return false;
+    }
+    if (senhaAlterada !== confirmarSenha) {
+      setMensagemErro("As novas senhas não estão iguais");
+      return false;
+    }
+    if (senha.includes('"') || senhaAlterada.includes('"') || senhaAlterada.includes("'")) {
+      setMensagemErro("A senha não pode conter aspas");
+      return false;
+    }
+    return true;
+  };
+
   return (
-    <MudarSenha style={{display: 'flex', flexDirection: 'column', justifyContent: 'space-between'}}>
-      <C.Descricao>Mbude a senha da sua conta</C.Descricao>
+    <MudarSenha style={{ display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
+      <C.Descricao>Altere a senha da sua conta</C.Descricao>
       <C.CampoPreencher>
         <C.CampoSenha>
           <FontAwesomeIcon icon={faLock} style={{ height: '40%', width: '10%', marginRight: '0', color: '#FEE101' }} />
           <C.EntradaInfo>
             <C.Input 
-              type="senha" 
+              type="password" 
               id="senha" 
               name="senha" 
               onChange={atualizarSenha} 
@@ -88,35 +130,35 @@ const CampoMudarSenha = () => {
           <FontAwesomeIcon icon={faLock} style={{ height: '40%', width: '10%', marginRight: '0', color: '#FEE101' }} />
           <C.EntradaInfo>
             <C.Input 
-              type="senhaAlterada" 
+              type="password" 
               id="senhaAlterada" 
               name="senhaAlterada" 
               onChange={atualizarSenhaAlterada} 
               required 
               maxLength={25}
             />
-            <C.Label htmlFor="senhaAlterada">Senha alterada</C.Label>
+            <C.Label htmlFor="senhaAlterada">Nova Senha</C.Label>
           </C.EntradaInfo>
         </C.CampoSenha>
         <C.CampoSenha>
           <FontAwesomeIcon icon={faLock} style={{ height: '40%', width: '10%', marginRight: '0', color: '#FEE101' }} />
           <C.EntradaInfo>
             <C.Input 
-              type="confirmarSenha" 
+              type="password" 
               id="confirmarSenha" 
               name="confirmarSenha" 
               onChange={atualizarConfirmarSenha} 
               required 
               maxLength={25}
             />
-            <C.Label htmlFor="confirmarSenha">Confirmar senha</C.Label>
+            <C.Label htmlFor="confirmarSenha">Confirmar Nova Senha</C.Label>
           </C.EntradaInfo>
         </C.CampoSenha>
         <C.MensagemErro>{mensagemErro}</C.MensagemErro>
       </C.CampoPreencher>
       <C.CampoEnvioFormulario>
         <C.BotaoMudar onClick={mudarSenha}>
-          <span>Mudar senha</span>
+          <span>Mudar Senha</span>
         </C.BotaoMudar>
       </C.CampoEnvioFormulario>
     </MudarSenha>

@@ -28,7 +28,7 @@ export const CampoPreencher = styled.div`
    display: flex;
    flex-direction: column;
    align-items: flex-start;
-   height: 40%;
+   height: 20%;
    width: 100%;
    justify-content: space-around;
    margin-top: 8%;
@@ -40,7 +40,7 @@ export const CampoEmail = styled.div`
   align-items: center;
   padding-inline: 3vw;
   width: 100%;
-  height: 30%;
+  height: 60%;
   border: 1px solid #d9d9d9;
   border-radius: 8px;
   position: relative; /* Para que o label posicionado absoluto funcione */
@@ -172,7 +172,7 @@ export const BotaoEmail = styled.div`
    display: flex;
    align-items: center;
    justify-content: center;
-   height: 100%;
+   height: 30%;
    width: 40%;
    background-color: #FEE101;
    border-radius: 8px;
