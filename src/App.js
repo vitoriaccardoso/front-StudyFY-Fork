@@ -13,6 +13,7 @@ import Notificacao from './pages/Notificacao';
 import Rank from './pages/Rank';
 import Perfil from './pages/perfil';
 import EsqueceuSenha from './pages/EsqueceuSenha';
+import MudarSenha from './pages/MudarSenha'
 
 import * as C from './styles/app';
 
@@ -22,7 +23,7 @@ function App() {
     <C.Container>
       <Router>
         <Routes>
-          <Route exact path='/' element= {<EsqueceuSenha/>} />
+          <Route exact path='/' element= {<MudarSenha/>} />
           <Route path='/perfil' element={<Perfil/>}></Route>
           <Route path='/atividades' element= {<Atividades/>} />
           <Route path='/caderno-virtual' element= {<CadernoVirtual/>} />
