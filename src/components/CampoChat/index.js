@@ -1,6 +1,5 @@
 import React from 'react';
 import * as C from './style';
-import './styles.css'
 
 const CampoChat = ({titulo}) => {
 
