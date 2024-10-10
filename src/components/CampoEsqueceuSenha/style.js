@@ -181,6 +181,8 @@ export const BotaoEmail = styled.div`
 export const MensagemErro = styled.span`
    color: red;
    font-size: 3vw;
+   height: 15%;
+
 `
 
 export const CampoEnvioFormulario = styled.div`

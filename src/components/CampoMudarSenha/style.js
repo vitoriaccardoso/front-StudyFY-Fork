@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { Link } from 'react-router-dom';
 
 export const CampoCadastrar = styled.div`
    height: 80%;
@@ -28,10 +29,9 @@ export const CampoPreencher = styled.div`
    display: flex;
    flex-direction: column;
    align-items: flex-start;
-   height: 40%;
+   height: 55%;
    width: 100%;
-   justify-content: space-around;
-   margin-top: 8%;
+   justify-content: space-between;
 `;
 
 export const CampoSenha = styled.div`
@@ -40,7 +40,7 @@ export const CampoSenha = styled.div`
   align-items: center;
   padding-inline: 3vw;
   width: 100%;
-  height: 30%;
+  min-height: 22%;
   border: 1px solid #d9d9d9;
   border-radius: 8px;
   position: relative; /* Para que o label posicionado absoluto funcione */
@@ -49,19 +49,6 @@ export const CampoSenha = styled.div`
   &:focus-within {
     border-color: #FEE101; /* Cor desejada quando o input estiver focado */
   }
-
-  @media (min-width: 768px) {
-     height: 22%;
-   }
-`;
-
-export const CampoCodigo = styled.div`
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  width: 100%;
-  height: 25%;
-  justify-content: space-evenly;
 
   @media (min-width: 768px) {
      height: 22%;
@@ -161,36 +148,35 @@ export const NomeMateria = styled.span`
 export const BotaoMudar = styled.div`
    background-color: #fee101;
    width: 50%;
-   height: 30%;
+   height: 50%;
    border-radius: 8px;
    display: flex;
    align-items: center;
    justify-content: center;
-`
-
-export const BotaoEmail = styled.div`
-   display: flex;
-   align-items: center;
-   justify-content: center;
-   height: 100%;
-   width: 40%;
-   background-color: #FEE101;
-   border-radius: 8px;
+   clickable: pointer;
 `
 
 export const MensagemErro = styled.span`
    color: red;
    font-size: 3vw;
+   height: 15%;
 `
 
 export const CampoEnvioFormulario = styled.div`
    display: flex;
    flex-direction: column;
-   height: 35%;
+   height: 20%;
    justify-content: space-evenly;
    align-items: center;
 `
 
-export const SenhaRecuperada = styled.span`
-   font-size: 4vw;
+export const VoltarLogin = styled(Link)`
+   font-size: 2.5vw;
+   text-decoration: none; /* Remove o sublinhado */
+   color: black; /* Define a cor do texto */
+   cursor: pointer; /* Mantém o comportamento de link */
+   
+   &:hover {
+      color: gray; /* Cor opcional para o estado de hover */
+   }
 `

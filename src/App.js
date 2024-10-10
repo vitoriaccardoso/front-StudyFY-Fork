@@ -14,6 +14,7 @@ import Rank from './pages/Rank';
 import Perfil from './pages/perfil';
 import EsqueceuSenha from './pages/EsqueceuSenha';
 import MudarSenha from './pages/MudarSenha'
+import Emblemas from './pages/Emblemas';
 
 import * as C from './styles/app';
 
@@ -23,7 +24,7 @@ function App() {
     <C.Container>
       <Router>
         <Routes>
-          <Route exact path='/' element= {<MudarSenha/>} />
+          <Route exact path='/' element= {<Emblemas/>} />
           <Route path='/perfil' element={<Perfil/>}></Route>
           <Route path='/atividades' element= {<Atividades/>} />
           <Route path='/caderno-virtual' element= {<CadernoVirtual/>} />
@@ -35,6 +36,9 @@ function App() {
           <Route path='/login' element= {<Login/>} />
           <Route path='/cadastro' element={<Cadastro />}/>
           <Route path='/grupo-mentoria' element={<GrupoMentoria />}/>
+          <Route path='/esqueceu-senha' element={<EsqueceuSenha />}/>
+          <Route path='/mudar-senha' element={<MudarSenha />}/>
+          <Route path='/emblemas' element={<Emblemas />}/>
         </Routes>
       </Router>
     </C.Container>

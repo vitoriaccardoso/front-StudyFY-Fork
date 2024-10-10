@@ -3,7 +3,7 @@ import * as C from './style';
 import { Link } from 'react-router-dom';
 import google from '../../assets/google.png';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faUser } from '@fortawesome/free-solid-svg-icons';
+import { faEnvelope, faLocation, faLock, faUser } from '@fortawesome/free-solid-svg-icons';
 import ContainerLogin from '../../styles/campoDados';
 import { useMediaQuery } from '@mui/material';
 import mascote from '../../assets/mascote.png'
@@ -94,22 +94,20 @@ const LogarAluno = ({ RetornarDadosLogin }) => { // Corrigido o nome do parâmet
       )}
         <C.CampoPreencher>
           <C.Campo erro={erros.email}>
-            <FontAwesomeIcon icon={faUser} style={{ marginRight: '0', color: '#FEE101' }} />
+            <FontAwesomeIcon icon={faEnvelope} style={{ marginRight: '0', color: '#FEE101' }} />
             <C.EntradaInfo>
               <C.Input type="text" id="email" name="email" ref={emailRef} required />
               <C.Label htmlFor="email">Email</C.Label>
             </C.EntradaInfo>
           </C.Campo>
           <C.Campo erro={erros.senha}>
-            <FontAwesomeIcon icon={faUser} style={{ marginRight: '0', color: '#FEE101' }} />
+            <FontAwesomeIcon icon={faLock} style={{ marginRight: '0', color: '#FEE101' }} />
             <C.EntradaInfo>
               <C.Input type="text" id="senha" name="senha" ref={senhaRef} required />
               <C.Label htmlFor="senha">Senha</C.Label>
             </C.EntradaInfo>
           </C.Campo>
-          <C.EsqueceuSenha>
-            <Link to={'/'}>Esqueceu a senha?</Link>
-          </C.EsqueceuSenha>
+          <C.EsqueceuSenha to={'/esqueceu-senha'}>Esqueceu a senha?</C.EsqueceuSenha>
         </C.CampoPreencher>
         <C.CadastroGoogle>
           <C.DescricaoGoogle>Ou cadastre-se com: </C.DescricaoGoogle>

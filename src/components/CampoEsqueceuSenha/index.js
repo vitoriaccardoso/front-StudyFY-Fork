@@ -24,6 +24,7 @@ const CampoEsqueceuSenha = () => {
     } else if (email.length > 256) {
       setMensagemErro('Este email passou do limite máximo de caracteres');
     } else {
+      setMensagemErro('')
       const codigo = gerarCodigo();
       setCodigoGerado(codigo);
   
@@ -108,13 +109,6 @@ const CampoEsqueceuSenha = () => {
         </C.CampoCodigo>
         <C.MensagemErro>{mensagemErro}</C.MensagemErro>
       </C.CampoPreencher>
-      <C.CampoEnvioFormulario>
-        {verificacao && <C.SenhaRecuperada>Sua senha é: 123456</C.SenhaRecuperada>}
-        <C.BotaoCodigo onClick={verificarCodigo}>
-          <span>Recuperar Código</span>
-        </C.BotaoCodigo>
-        <Link to={'/login'}>Voltar para a tela de login</Link>
-      </C.CampoEnvioFormulario>
     </EsqueceuSenha>
   );
 };

@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { Link } from 'react-router-dom';
 
 export const Descricao = styled.span`
    font-size: 5.5vw;
@@ -14,7 +15,7 @@ export const CampoPreencher = styled.div`
    display: flex;
    flex-direction: column;
    align-items: flex-start;
-   height: 25%;
+   height: 30%;
    gap: 1vh;
 
    @media (min-width: 768px) {
@@ -28,7 +29,7 @@ export const Campo = styled.div`
   align-items: center;
   padding-inline: 3vw;
   width: 100%;
-  height: 100%;
+  height: 35%;
   border: 1px solid #d9d9d9;
   border-radius: 8px;
   position: relative; /* Para que o label posicionado absoluto funcione */
@@ -43,13 +44,16 @@ export const Campo = styled.div`
    }
 `;
 
-export const EsqueceuSenha = styled.span`
-   font-size: 2vw;
-
-   @media (min-width: 768px) {
-      font-size: 1vw;
+export const EsqueceuSenha = styled(Link)`
+   font-size: 2.5vw;
+   text-decoration: none; /* Remove o sublinhado */
+   color: black; /* Define a cor do texto */
+   cursor: pointer; /* Mantém o comportamento de link */
+   
+   &:hover {
+      color: gray; /* Cor opcional para o estado de hover */
    }
-`;
+`
 
 export const EntradaInfo = styled.div`
    position: relative;
