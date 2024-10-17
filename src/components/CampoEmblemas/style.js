@@ -1,5 +1,11 @@
 import styled from "styled-components";
 
+export const CampoEmblemas = styled.div`
+   width: 100%;
+   max-height: 85%;
+   padding-bottom: 20%;
+   overflow-y: auto;
+`
 export const EmblemasAluno = styled.div`
    display: flex;
    flex-direction: column;
@@ -7,6 +13,17 @@ export const EmblemasAluno = styled.div`
    width: 100%;
    padding-inline: 5vw;
    gap: 2vh;
+   background-color: red;
+`
+
+export const EmblemasProfessor = styled.div`
+   display: flex;
+   flex-direction: column;
+   min-height: 50%;
+   width: 100%;
+   padding-inline: 5vw;
+   gap: 2vh;
+   margin-top: 8vh;
 `
 
 export const Titulo = styled.span`
@@ -20,6 +37,7 @@ export const Emblema = styled.div`
    display: flex;
    align-items: center;
    justify-content: space-between;
+   background-color: blue;
 `
 
 export const AreaIcone = styled.div`
@@ -50,9 +68,9 @@ export const Nivel = styled.span`
 export const AreaInfo = styled.div`
    display: flex;
    flex-direction: column;
-   height: 100%;
+   min-height: 100%;
    width: 65%;
-   padding-block: 1.5vh;
+   background-color: red;
    justify-content: space-between;
 `
 

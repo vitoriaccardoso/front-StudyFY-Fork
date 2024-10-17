@@ -1,21 +1,22 @@
 import styled from "styled-components";
 
 export const ContainerNavegacao = styled.div`
-   display: flex;
-   flex-direction: row;
-   min-height: 8%;
-   height: 8%;
-   width: 100%;
-   background-color: white;
-   border-top: solid #d9d9d9 5px;
-   align-items: center;
-   justify-content: space-between;
-   position: fixed;
-   bottom: 0;
-   position: relative; /* Permite que DivImagensExtras seja posicionada em relação a ela */
-   margin-top: auto;
-   z-index: 100;
+  display: flex;
+  flex-direction: row;
+  min-height: 8%;
+  height: 8%;
+  width: 100%;
+  background-color: white;
+  border-top: solid #d9d9d9 5px;
+  align-items: center;
+  justify-content: space-between;
+  position: fixed; /* Altera de relative para fixed */
+  bottom: 0; /* Mantém na parte inferior da tela */
+  z-index: 100;
 `;
+
+// O restante do seu estilo não precisa ser alterado
+
 
 export const ImgDiv = styled.div`
    display: flex;
