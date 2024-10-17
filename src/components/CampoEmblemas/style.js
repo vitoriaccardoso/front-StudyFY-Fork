@@ -3,17 +3,17 @@ import styled from "styled-components";
 export const CampoEmblemas = styled.div`
    width: 100%;
    max-height: 85%;
+   height: 100%;
    padding-bottom: 20%;
    overflow-y: auto;
 `
 export const EmblemasAluno = styled.div`
    display: flex;
    flex-direction: column;
-   min-height: 50%;
+   height: auto;
    width: 100%;
    padding-inline: 5vw;
    gap: 2vh;
-   background-color: red;
 `
 
 export const EmblemasProfessor = styled.div`
@@ -33,22 +33,20 @@ export const Titulo = styled.span`
 
 export const Emblema = styled.div`
    width: 100%;
-   min-height: 30%;
+   min-height: 13vh;
    display: flex;
-   align-items: center;
    justify-content: space-between;
-   background-color: blue;
 `
 
 export const AreaIcone = styled.div`
-   height: 100%;
-   width: 30%;
+   min-height: 100%;
+   width: 28%;
    border-radius: 8px;
    background-color: ${(props) => props.cor || '#d9d9d9'}; /* Cor padrão se não for fornecida */
    display: flex;
    flex-direction: column;
    align-items:center;
-   justify-content: center;
+   justify-content: space-evenly;
 
    &.nPossui {
     opacity: 0.5;
@@ -56,8 +54,8 @@ export const AreaIcone = styled.div`
 `
 
 export const Icone = styled.img`
-   height: 55%;
-   width: 65%;
+   height: 60%;
+   width: 60%;
 `
 
 export const Nivel = styled.span`
@@ -70,7 +68,7 @@ export const AreaInfo = styled.div`
    flex-direction: column;
    min-height: 100%;
    width: 65%;
-   background-color: red;
+   padding-block: 2.5vh;
    justify-content: space-between;
 `
 
@@ -91,7 +89,7 @@ export const Descricao = styled.span`
 `
 
 export const AreaProgresso = styled.div`
-   height: 15%;
+   height: 20%;
    border-radius: 8px;
    width: 100%;
    background-color: #d9d9d9;
