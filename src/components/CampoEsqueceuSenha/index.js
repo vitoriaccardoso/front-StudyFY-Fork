@@ -6,10 +6,14 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
 import axios from 'axios';
 import { v4 as uuidv4 } from 'uuid'; // Importando a biblioteca
+import mascote from '../../assets/mascote.png'
+import { useMediaQuery } from '@mui/material';
 
 const CampoEsqueceuSenha = () => {
   const [email, setEmail] = useState("");
   const [mensagemErro, setMensagemErro] = useState('');
+  const isDesktop = useMediaQuery('(min-width: 768px)');
+
 
   const gerarToken = () => {
     return uuidv4(); // Gera um UUID
@@ -63,6 +67,8 @@ const CampoEsqueceuSenha = () => {
 
       const emailJSON = { email };
 
+      console.log(emailJSON);
+      
       try {
         const response = await axios.post('http://localhost:8080/v1/studyFy/login-email', emailJSON);
         console.log('email encontrado');
@@ -83,7 +89,17 @@ const CampoEsqueceuSenha = () => {
 
   return (
     <EsqueceuSenha>
-      <C.Descricao>Informe seu email para que possamos enviar a sua senha e digite o código recebido</C.Descricao>
+      {isDesktop ? (
+        <div style={{ display: 'flex', flexDirection: 'column', height: '20%', alignItems: 'start', gap: '10px'}}>
+          <div style={{ display: 'flex', width: '100%', height: '70%', alignItems: 'center', gap: '3%'}}>
+            <img src={mascote} alt="mascote" style={{ width: '15%', minHeight: '100%' }} />
+            <span style={{ fontSize: '2.3vw' }}>Esqueceu a senha?</span>
+          </div>
+          <C.Descricao>Informe seu email para que possa redefini-la</C.Descricao>
+        </div>
+      ) : (
+        <C.Descricao>Informe seu email para que possa redefini-la</C.Descricao>
+      )}
       <C.CampoPreencher>
         <C.CampoEmail>
           <FontAwesomeIcon icon={faEnvelope} style={{ height: '50%', width: '10%', marginRight: '0', color: '#FEE101' }} />

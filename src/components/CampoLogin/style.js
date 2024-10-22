@@ -53,6 +53,10 @@ export const EsqueceuSenha = styled(Link)`
    &:hover {
       color: gray; /* Cor opcional para o estado de hover */
    }
+
+     @media (min-width: 768px) {
+     font-size: 1vw;
+   }
 `
 
 export const EntradaInfo = styled.div`

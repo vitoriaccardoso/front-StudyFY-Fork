@@ -38,8 +38,7 @@ export const Apresentacao = styled.div`
    height: 100%;
    width: 45%;
    max-width: 45%;
-   justify-content: space-between;
-   background-color: red;
+   justify-content: space-evenly;
 `
 
 export const NomeMembro = styled.span`
@@ -63,7 +62,6 @@ export const InfoDiv = styled.div`
    align-items: start;
    justify-content: center;
    width: 37%;
-   background-color: blue;
 `
 
 export const Info = styled.div`

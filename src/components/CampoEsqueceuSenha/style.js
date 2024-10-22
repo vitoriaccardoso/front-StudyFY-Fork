@@ -1,19 +1,6 @@
 import styled from "styled-components";
 
-export const CampoCadastrar = styled.div`
-   height: 80%;
-   background-color: 28
-   width: 100%;
-   justify-content: left;
-   display: flex;
-   flex-direction: column;
-   gap: 3vh;
 
-   @media (min-width: 768px) {
-      gap: 7vh;
-      height: 100%;
-   }
-`
 export const Descricao = styled.span`
    font-size: 4.5vw;
    display: flex;
@@ -28,10 +15,14 @@ export const CampoPreencher = styled.div`
    display: flex;
    flex-direction: column;
    align-items: flex-start;
-   height: 20%;
-   width: 100%;
-   justify-content: space-around;
-   margin-top: 8%;
+   height: 45%;
+   gap: 1vh;
+   justify-content: center;
+
+   @media (min-width: 768px) {
+      height: 40%;
+      justify-content: center;
+   }
 `;
 
 export const CampoEmail = styled.div`
@@ -40,7 +31,7 @@ export const CampoEmail = styled.div`
   align-items: center;
   padding-inline: 3vw;
   width: 100%;
-  height: 60%;
+  height: 25%;
   border: 1px solid #d9d9d9;
   border-radius: 8px;
   position: relative; /* Para que o label posicionado absoluto funcione */
@@ -182,6 +173,10 @@ export const MensagemErro = styled.span`
    color: red;
    font-size: 3vw;
    height: 15%;
+
+   @media (min-width: 768px) {
+     font-size: 1vw;
+   }
 
 `
 

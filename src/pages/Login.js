@@ -27,7 +27,7 @@ const LoginAluno = () => {
       const response = await axios.post('http://localhost:8080/v1/studyFy/login', dadosLogin);
       console.log('Registro completo com sucesso:', response.data);
 
-      navigate('/grupoMentoria')
+      navigate('/grupo-mentoria')
 
     } catch (error) {
 

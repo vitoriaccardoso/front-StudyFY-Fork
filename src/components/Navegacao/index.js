@@ -44,7 +44,7 @@ const AbasGrupoMentoria = () => {
     'atividades',
     'caderno-virtual',
     'rank',
-    'perfil',
+    'emblemas',
     'notificacao',
     'chat-privado',
     'chatIA',

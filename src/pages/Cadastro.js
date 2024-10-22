@@ -23,9 +23,9 @@ const CadastroAluno = () => {
     };
 
     if(usuario === 'aluno'){
-      url = 'http://localhost:8080/v1/studyFy/alunos'
+      url = 'http://localhost:8080/v1/studyFy/aluno'
     } else if (usuario === 'professor'){
-      url = 'http://localhost:8080/v1/studyFy/professores'
+      url = 'http://localhost:8080/v1/studyFy/professor'
     }
 
     try {

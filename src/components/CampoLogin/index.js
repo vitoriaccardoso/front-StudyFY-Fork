@@ -8,6 +8,7 @@ import ContainerLogin from '../../styles/campoDados';
 import { useMediaQuery } from '@mui/material';
 import mascote from '../../assets/mascote.png'
 
+
 const LogarAluno = ({ RetornarDadosLogin }) => { // Corrigido o nome do parâmetro
   const emailRef = useRef(null);
   const senhaRef = useRef(null);
@@ -28,7 +29,7 @@ const LogarAluno = ({ RetornarDadosLogin }) => { // Corrigido o nome do parâmet
     }
   };
 
-  const ValidarLogin = (email, senha) => {
+  const ValidarLogin = async (email, senha) => {
     let novoErro = { email: false, senha: false };
     let erroEncontrado = false;
 
@@ -41,13 +42,7 @@ const LogarAluno = ({ RetornarDadosLogin }) => { // Corrigido o nome do parâmet
       setMensagemErro('O campo Email excedeu o limite de 255 caracteres.');
       novoErro.email = true;
       erroEncontrado = true;
-    } 
-    // else if (!email.includes('@gmail.com')) {
-    //   setMensagemErro('O campo deve haver "@gmail.com"');
-    //   novoErro.email = true;
-    //   erroEncontrado = true;
-    // } 
-    else if (email.includes('"') || email.includes("'")) {
+    } else if (email.includes('"') || email.includes("'")) {
       setMensagemErro('Não deve haver o uso de aspas nos campo');
       novoErro.email = true;
       erroEncontrado = true;
@@ -103,7 +98,7 @@ const LogarAluno = ({ RetornarDadosLogin }) => { // Corrigido o nome do parâmet
           <C.Campo erro={erros.senha}>
             <FontAwesomeIcon icon={faLock} style={{ marginRight: '0', color: '#FEE101' }} />
             <C.EntradaInfo>
-              <C.Input type="text" id="senha" name="senha" ref={senhaRef} required />
+              <C.Input type="password" id="senha" name="senha" ref={senhaRef} required />
               <C.Label htmlFor="senha">Senha</C.Label>
             </C.EntradaInfo>
           </C.Campo>

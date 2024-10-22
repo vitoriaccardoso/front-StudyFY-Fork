@@ -40,7 +40,7 @@ export const CampoSenha = styled.div`
   align-items: center;
   padding-inline: 3vw;
   width: 100%;
-  min-height: 22%;
+  min-height: 18%;
   border: 1px solid #d9d9d9;
   border-radius: 8px;
   position: relative; /* Para que o label posicionado absoluto funcione */
@@ -51,7 +51,7 @@ export const CampoSenha = styled.div`
   }
 
   @media (min-width: 768px) {
-     height: 22%;
+     height: 15%;
    }
 `;
 
@@ -160,6 +160,10 @@ export const MensagemErro = styled.span`
    color: red;
    font-size: 3vw;
    height: 15%;
+
+   @media (min-width: 768px) {
+      font-size: 1vw;
+   }
 `
 
 export const CampoEnvioFormulario = styled.div`

@@ -2,9 +2,11 @@ import React, { useRef, useState } from 'react';
 import * as C from './style';
 import google from '../../assets/google.png';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faUser, faEnvelope } from '@fortawesome/free-solid-svg-icons';
+import { faUser, faEnvelope, faLock, faPhone } from '@fortawesome/free-solid-svg-icons';
 import mascote from '../../assets/mascote.png'
 import { useMediaQuery } from '@mui/material';
+import axios from 'axios';
+
 
 const InserirInfoAluno = ({ AvancarEtapa, RetornarDados }) => {
   const nomeRef = useRef(null);
@@ -15,7 +17,7 @@ const InserirInfoAluno = ({ AvancarEtapa, RetornarDados }) => {
   const [mensagemErro, setMensagemErro] = useState('');
   const [erros, setErros] = useState({ nome: false, email: false, senha: false, telefone: false });
 
-  const AcaoBotao = () => {
+  const AcaoBotao = async () => {
     setErros({ nome: false, email: false, senha: false, telefone: false });
 
     const nome = nomeRef.current.value;
@@ -23,7 +25,13 @@ const InserirInfoAluno = ({ AvancarEtapa, RetornarDados }) => {
     const senha = senhaRef.current.value;
     const telefoneSemMascara = removerMascaraTelefone(telefone); // Remove a máscara do telefone
 
-    if (validarDados(nome, email, senha, telefone)) {
+    // Verificar se os dados são válidos
+    const dadosValidos = await validarDados(nome, email, senha, telefone);
+
+    console.log('oiiii' + dadosValidos);
+    
+    // Somente avança se os dados forem válidos
+    if (dadosValidos) {
       RetornarDados({ nome, email, senha, telefone: telefoneSemMascara });
       AvancarEtapa();
     }
@@ -54,7 +62,7 @@ const InserirInfoAluno = ({ AvancarEtapa, RetornarDados }) => {
     setTelefone(telefoneFormatado);
   };
 
-  const validarDados = (nome, email, senha, telefone) => {
+  const validarDados = async (nome, email, senha, telefone) => {
     let novoErro = { nome: false, email: false, senha: false, telefone: false };
     let erroEncontrado = false;
 
@@ -78,10 +86,6 @@ const InserirInfoAluno = ({ AvancarEtapa, RetornarDados }) => {
       erroEncontrado = true;
     } else if (email.length > 255) {
       setMensagemErro('O campo Email excedeu o limite de 255 caracteres.');
-      novoErro.email = true;
-      erroEncontrado = true;
-    } else if (!email.includes('@gmail.com')) {
-      setMensagemErro('O campo deve haver "@gmail.com"');
       novoErro.email = true;
       erroEncontrado = true;
     } else if (email.includes('"') || email.includes("'")) {
@@ -153,7 +157,7 @@ const InserirInfoAluno = ({ AvancarEtapa, RetornarDados }) => {
           </C.Campo>
 
           <C.Campo erro={erros.email}>
-            <FontAwesomeIcon icon={faUser} style={{ marginRight: '0', color: '#FEE101' }} />
+            <FontAwesomeIcon icon={faEnvelope} style={{ marginRight: '0', color: '#FEE101' }} />
             <C.EntradaInfo>
               <C.Input type="text" id="email" name="email" ref={emailRef} required maxLength="255" />
               <C.Label htmlFor="email">Email</C.Label>
@@ -161,7 +165,7 @@ const InserirInfoAluno = ({ AvancarEtapa, RetornarDados }) => {
           </C.Campo>
 
           <C.Campo erro={erros.senha}>
-            <FontAwesomeIcon icon={faUser} style={{ marginRight: '0', color: '#FEE101' }} />
+            <FontAwesomeIcon icon={faLock} style={{ marginRight: '0', color: '#FEE101' }} />
             <C.EntradaInfo>
               <C.Input type="password" id="senha" name="senha" ref={senhaRef} required maxLength="25" />
               <C.Label htmlFor="senha">Senha</C.Label>
@@ -169,7 +173,7 @@ const InserirInfoAluno = ({ AvancarEtapa, RetornarDados }) => {
           </C.Campo>
 
           <C.Campo erro={erros.telefone}>
-            <FontAwesomeIcon icon={faUser} style={{ marginRight: '0', color: '#FEE101' }} />
+            <FontAwesomeIcon icon={faPhone} style={{ marginRight: '0', color: '#FEE101' }} />
             <C.EntradaInfo>
               <C.Input type="text" id="telefone" name="telefone" value={telefone} required maxLength="15" onChange={acaoFormatarTelefone} />
               <C.Label htmlFor="telefone">Telefone</C.Label>
@@ -184,9 +188,8 @@ const InserirInfoAluno = ({ AvancarEtapa, RetornarDados }) => {
 
         <C.EnvioFormuario>
           <C.Erro>{mensagemErro}</C.Erro>
-          <C.Botao onClick={AcaoBotao}>Próximo Passo</C.Botao>
+          <C.Botao type="submit" onClick={AcaoBotao}>Cadastrar</C.Botao>
         </C.EnvioFormuario>
-
       </C.CampoCadastrar>
     </>
   );

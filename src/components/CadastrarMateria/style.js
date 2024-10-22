@@ -63,7 +63,7 @@ export const NomeMateria = styled.span`
    font-size: 4vw;
 
    @media (min-width: 768px) {
-      font-size: 2vw;
+      font-size: 1.5vw;
    }
 `
 

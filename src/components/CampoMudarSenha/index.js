@@ -5,6 +5,8 @@ import MudarSenha from '../../styles/campoDados';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faLock } from '@fortawesome/free-solid-svg-icons';
 import axios from 'axios';
+import { useMediaQuery } from '@mui/material';
+import mascote from '../../assets/mascote.png'
 
 const CampoMudarSenha = () => {
   const [senha, setSenha] = useState("");
@@ -38,6 +40,8 @@ const CampoMudarSenha = () => {
 
   const pegarSenhaUsuario = async (id) => {
     const idJSON = { id };
+    console.log(idJSON);
+    
 
     try {
       const response = await axios.post(`http://localhost:8080/v1/studyFy/get-senha`, idJSON);
@@ -74,6 +78,7 @@ const CampoMudarSenha = () => {
     try {
       await axios.put(`http://localhost:8080/v1/studyFy/aluno-senha/${id}`, senhaJSON);
       console.log('Senha alterada com sucesso');
+      navigate('/login');
     } catch (error) {
       console.error('Erro ao alterar senha:', error);
       setMensagemErro('Houve um erro ao alterar a senha');
@@ -108,9 +113,21 @@ const CampoMudarSenha = () => {
     return true;
   };
 
+  const isDesktop = useMediaQuery('(min-width: 768px)');
+
   return (
     <MudarSenha style={{ display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
-      <C.Descricao>Altere a senha da sua conta</C.Descricao>
+    {isDesktop ? (
+        <div style={{ display: 'flex', flexDirection: 'column', minHeight: '20%', alignItems: 'start', gap: '10px'}}>
+          <div style={{ display: 'flex', width: '100%', height: '70%', alignItems: 'center'}}>
+            <img src={mascote} alt="mascote" style={{ width: '15%', height: '100%' }} />
+            <span style={{ fontSize: '2.5vw' }}>Mudar senha</span>
+          </div>
+          <C.Descricao>Altere a senha da sua conta</C.Descricao>
+        </div>
+      ) : (
+        <C.Descricao>Altere a senha da sua conta</C.Descricao>
+      )}
       <C.CampoPreencher>
         <C.CampoSenha>
           <FontAwesomeIcon icon={faLock} style={{ height: '40%', width: '10%', marginRight: '0', color: '#FEE101' }} />

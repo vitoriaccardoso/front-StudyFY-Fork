@@ -10,7 +10,7 @@ const chatIA = () => {
   return (
     <Container style={{backgroundColor: 'white', gap: '2vh', alignItems: 'center', paddingTop: '1vh'}}>
         <span>chatIA</span>
-        <CampoChat titulo = {'Converse com nosso caabreso para tirar dúvidas superficiais'}></CampoChat>
+        <CampoChat titulo = {'Converse com nossa IA para tirar dúvidas superficiais'}></CampoChat>
         <CampoInput></CampoInput>
       <Navegacao></Navegacao>
     </Container>
