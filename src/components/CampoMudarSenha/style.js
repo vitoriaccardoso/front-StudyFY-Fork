@@ -31,7 +31,7 @@ export const CampoPreencher = styled.div`
    align-items: flex-start;
    height: 55%;
    width: 100%;
-   justify-content: space-between;
+   justify-content: space-evenly;
 `;
 
 export const CampoSenha = styled.div`

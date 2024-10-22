@@ -9,14 +9,12 @@ import { useMediaQuery } from '@mui/material';
 import mascote from '../../assets/mascote.png'
 
 const CampoMudarSenha = () => {
-  const [senha, setSenha] = useState("");
   const [senhaAlterada, setSenhaAlterada] = useState("");
   const [confirmarSenha, setConfirmarSenha] = useState("");
   const [mensagemErro, setMensagemErro] = useState('');
   const [id, setIdUsuario] = useState('');
   const [email, setEmailUsuario] = useState('');
   const [token, setTokenUsuario] = useState('');
-  const [senhaUsuario, setSenhaUsuario] = useState('');
   const navigate = useNavigate();
 
   // Função para obter os parâmetros da URL
@@ -30,7 +28,6 @@ const CampoMudarSenha = () => {
       setIdUsuario(idParam);
       setEmailUsuario(emailParam);
       setTokenUsuario(tokenParam);
-      pegarSenhaUsuario(idParam); // Chama a função para pegar a senha do usuário
     }
   };
 
@@ -38,21 +35,6 @@ const CampoMudarSenha = () => {
     obterParametros();
   }, []);
 
-  const pegarSenhaUsuario = async (id) => {
-    const idJSON = { id };
-    console.log(idJSON);
-    
-
-    try {
-      const response = await axios.post(`http://localhost:8080/v1/studyFy/get-senha`, idJSON);
-      setSenhaUsuario(response.data.senha); // Armazena a senha do usuário
-      console.log('Senha do usuário:', response.data.senha);
-    } catch (error) {
-      console.error('Erro ao pegar senha:', error);
-    }
-  };
-
-  const atualizarSenha = (evento) => setSenha(evento.target.value);
   const atualizarSenhaAlterada = (evento) => setSenhaAlterada(evento.target.value);
   const atualizarConfirmarSenha = (evento) => setConfirmarSenha(evento.target.value);
 
@@ -86,30 +68,38 @@ const CampoMudarSenha = () => {
   };
 
   const validarSenha = () => {
-    if (!senha) {
-      setMensagemErro('O campo senha atual não pode estar vazio');
-      return false;
+
+    if (senhaAlterada === '') {
+      setMensagemErro('Não deve haver campos vazios');
+      return false
+    } else if (senhaAlterada.length > 25) {
+      setMensagemErro('O campo Senha excedeu o limite de 25 caracteres.');
+      return false
+    } else if (senhaAlterada.length < 4) {
+      setMensagemErro('O campo Senha possui menos de 6 caracteres.');
+      return false
+    } else if (senhaAlterada.includes('"') || senhaAlterada.includes("'")) {
+      setMensagemErro('Não deve haver o uso de aspas nos campo');
+      return false
     }
-    if (!senhaAlterada) {
-      setMensagemErro('O campo nova senha não pode estar vazio');
-      return false;
+
+    if (confirmarSenha === '') {
+      setMensagemErro('Não deve haver campos vazios');
+      return false
+    } else if (confirmarSenha.length > 25) {
+      setMensagemErro('O campo Senha excedeu o limite de 25 caracteres.');
+      return false
+    } else if (confirmarSenha.length < 4) {
+      setMensagemErro('O campo Senha possui menos de 6 caracteres.');
+      return false
+    } else if (confirmarSenha.includes('"') || confirmarSenha.includes("'")) {
+      setMensagemErro('Não deve haver o uso de aspas nos campo');
+      return false
+    } else if (confirmarSenha != senhaAlterada) {
+      setMensagemErro('Os campos possuem senhas diferentes')
+      return false
     }
-    if (!confirmarSenha) {
-      setMensagemErro('O campo confirmar nova senha não pode estar vazio');
-      return false;
-    }
-    if (senha !== senhaUsuario) {
-      setMensagemErro("Sua senha atual está incorreta");
-      return false;
-    }
-    if (senhaAlterada !== confirmarSenha) {
-      setMensagemErro("As novas senhas não estão iguais");
-      return false;
-    }
-    if (senha.includes('"') || senhaAlterada.includes('"') || senhaAlterada.includes("'")) {
-      setMensagemErro("A senha não pode conter aspas");
-      return false;
-    }
+
     return true;
   };
 
@@ -129,20 +119,6 @@ const CampoMudarSenha = () => {
         <C.Descricao>Altere a senha da sua conta</C.Descricao>
       )}
       <C.CampoPreencher>
-        <C.CampoSenha>
-          <FontAwesomeIcon icon={faLock} style={{ height: '40%', width: '10%', marginRight: '0', color: '#FEE101' }} />
-          <C.EntradaInfo>
-            <C.Input 
-              type="password" 
-              id="senha" 
-              name="senha" 
-              onChange={atualizarSenha} 
-              required 
-              maxLength={25}
-            />
-            <C.Label htmlFor="senha">Senha Atual</C.Label>
-          </C.EntradaInfo>
-        </C.CampoSenha>
         <C.CampoSenha>
           <FontAwesomeIcon icon={faLock} style={{ height: '40%', width: '10%', marginRight: '0', color: '#FEE101' }} />
           <C.EntradaInfo>

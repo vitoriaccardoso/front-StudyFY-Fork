@@ -12,6 +12,15 @@ export const ContainerNavegacao = styled.div`
   position: relative; /* Altera de relative para fixed */
   bottom: 0; /* Mantém na parte inferior da tela */
   z-index: 100;
+
+  @media(min-width: 768px) {
+   flex-direction: column;
+   height: 100%;
+   width: 20%;
+   border-left: 15px solid #fee101;
+   border-right: 5px solid #fee101;
+
+  }
 `;
 
 // O restante do seu estilo não precisa ser alterado
@@ -24,8 +33,14 @@ export const ImgDiv = styled.div`
    min-height: 100%;
    width: 15%;
    border-radius: 8px;
-   background-color: #666260;
+   background-color: #666260; /* Cor padrão de fundo */
+
+   @media (min-width: 768px) {
+      min-height: 10%;
+      width: 100%;
+   }
 `;
+
 
 export const ImgDivExtras = styled.div`
    display: flex;
@@ -39,10 +54,17 @@ export const ImgDivExtras = styled.div`
 
 export const DivImgs = styled.div`
    display: flex;
-   align-items: center;
+   align-items: start;
    justify-content: space-evenly;
    height: 75%;
    width: 80%;
+
+   @media (min-width: 768px) {
+      flex-direction: column;
+      gap: 2vh;
+      height: 80%;
+      justify-content: flex-start;
+   }
 `;
 
 export const DivImagensExtras = styled.div`
