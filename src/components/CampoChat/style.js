@@ -7,6 +7,10 @@ export const Campo = styled.div`
    align-items: center;
    display: flex;
    flex-direction: column;
+
+   @media (min-width: 768px){
+      height: 90%;
+   }
 `
 
 export const mascote = styled.img`

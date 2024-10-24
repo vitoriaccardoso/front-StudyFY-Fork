@@ -6,6 +6,12 @@ export const CampoEmblemas = styled.div`
    height: 100%;
    padding-bottom: 20%;
    overflow-y: auto;
+
+   @media (min-width: 768px) {
+      max-height: 100%;
+      padding-top: 4%;
+      padding-bottom: 5%;
+   }
 `
 export const EmblemasAluno = styled.div`
    display: flex;
@@ -24,6 +30,10 @@ export const EmblemasProfessor = styled.div`
    padding-inline: 5vw;
    gap: 2vh;
    margin-top: 8vh;
+
+   @media (min-width: 768px){
+      margin-top: 5vh;
+   }
 `
 
 export const Titulo = styled.span`
@@ -31,7 +41,7 @@ export const Titulo = styled.span`
    font-weight: bold;
 
    @media (min-width: 768px) {
-      font-size: 2vw;
+      font-size: 1.5vw;
    }
 `
 
@@ -44,8 +54,8 @@ export const Emblema = styled.div`
 
    @media (min-width: 768px){
       min-height: 2vh;
-      max-height: 20vh;
-      width: 80%;
+      max-height: 12vh;
+      width: 55%;
       justify-content: flex-start;
       gap: 5%;
    }
@@ -66,13 +76,17 @@ export const AreaIcone = styled.div`
     }
 
     @media (min-width: 768px){
-      width: 18%;
+      width: 15%;
    }
 `
 
 export const Icone = styled.img`
    height: 60%;
    width: 60%;
+
+   @media (min-width: 768px){
+      width: 55%;
+   }
 `
 
 export const Nivel = styled.span`
@@ -80,7 +94,7 @@ export const Nivel = styled.span`
    font-weight: 600;
 
    @media (min-width: 768px){
-      font-size: 1.5vw;
+      font-size: 0.8vw;
    }
 `
 
@@ -103,7 +117,7 @@ export const TituloEmblema = styled.span`
    font-weight: bold;
 
    @media (min-width: 768px){
-      font-size: 1.5vw;
+      font-size: 1.2vw;
    }
 `
 
@@ -111,7 +125,7 @@ export const Descricao = styled.span`
    font-size: 2.5vw;
 
    @media (min-width: 768px){
-      font-size: 1vw;
+      font-size: 0.8vw;
    }
 `
 
@@ -141,6 +155,6 @@ export const Andamento = styled.span`
    z-index: 1;
 
    @media (min-width: 768px){
-      font-size: 1vw;
+      font-size: 0.7vw;
    }
 `

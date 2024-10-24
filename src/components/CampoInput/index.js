@@ -1,17 +1,17 @@
 import React from 'react';
 import * as C from './style';
-import ImgEnviar from '../../assets/seta.png';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
 
-const CampoChat = () => {
-
+const SeuComponente = () => {
   return (
-    <>
     <C.Campo>
-        <C.input placeholder='Escreva uma mensagem'></C.input>
-        <C.ImgEnviar src={ImgEnviar}></C.ImgEnviar>
+      <C.InputContainer>
+        <C.Input placeholder="Digite sua mensagem" />
+        <FontAwesomeIcon icon={faArrowRight} style={{ cursor: 'pointer', height: '50%', width: '15%'}} />
+      </C.InputContainer>
     </C.Campo>
-    </>
   );
 };
 
-export default CampoChat;
+export default SeuComponente;

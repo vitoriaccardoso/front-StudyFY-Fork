@@ -1,34 +1,34 @@
 import styled from "styled-components";
 
 export const Campo = styled.div`
-   height: 9%;
+   height: 6%;
    width: 100%;
-   justify-content: center;
-   align-items: center;
    display: flex;
    flex-direction: column;
-`
+   justify-content: center;
+   align-items: center;
 
-export const inputDiv = styled.div`
-   height: 25%;
-   width: 27%;
-`
+   @media(min-width: 768px) {
+      height: 8%;
+   }
+`;
 
-export const input = styled.input`
-   height: 60%;
+export const InputContainer = styled.div`
+   display: flex;
+   align-items: center;
    width: 80%;
+   height: 100%;
+   background-color: #d9d9d9;
+   justify-content: flex-start;
+   border-radius: 12px
+`;
+
+export const Input = styled.input`
    outline: none;
    border: none;
-   border-radius: 24px;
-   background-color: #d9d9d9;
-   padding: 20px;
-`
-
-export const ImgEnviar = styled.img`
-  height: 30px;
-   width: 30px;
-   position: absolute;
-   right: 50px
-   
-   
-`
+   width: 90%;
+   height: 100%;
+   background-color: transparent;
+   border-radiu: 12px;
+   padding-inline: 5%;
+`;

@@ -5,7 +5,7 @@ export const ContainerNavegacao = styled.div`
   display: flex;
   flex-direction: row;
   min-height: 7vh;
-  width: 100%;
+  min-width: 100%;
   background-color: white;
   border-top: solid #d9d9d9 2px;
   align-items: center;
@@ -17,12 +17,26 @@ export const ContainerNavegacao = styled.div`
   @media(min-width: 768px) {
    flex-direction: column;
    height: 100%;
-   width: 20%;
-   border-left: 15px solid #fee101;
-   border-right: 5px solid #fee101;
-   justify-content: center;
+   min-width: 20%;
+   border-right: 1px solid #d9d9d9;
+   justify-content: flex-start;
+   padding-top: 2%;
+   gap: 5%;
+   padding-left: 2%;
+
   }
 `;
+
+export const nomeApp = styled.span`
+   font-size: 2vw;
+   font-weight: bold;
+   width: 100%;
+   text-align: start;
+`
+
+export const nomeAppAmarelo = styled.span`
+   color: #fee101;
+`
 
 export const CampoIcone = styled(Link)`
    height: 100%;
@@ -39,9 +53,8 @@ export const CampoIcone = styled(Link)`
    }
 
      @media (min-width: 768px) {
-      gap: 5%;
-      padding-left: 10%;
       text-decoration: none;
+      padding-left: 5%;
    }
 `
 
@@ -50,13 +63,13 @@ export const imgIcone = styled.img`
    width: 60%;
 
    @media(min-width: 768px){
-      height: 70%;
-      width: 60%;
+      height: 60%;
+      width: 65%;
    }
 `
 
 export const AreaImg = styled.div`
-   width: 25%;
+   width: 20%;
    height: 100%;
    align-items: center;
    display: flex;
@@ -87,9 +100,9 @@ export const ImgDiv = styled.div`
    background-color: #666260; /* Cor padrão de fundo */
 
    @media (min-width: 768px) {
-      height: 15%;
-      width: 100%;
-      border-radius: 0px;
+      height: 10%;
+      width: 90%;
+      border-radius: 12px;
    }
 `;
 

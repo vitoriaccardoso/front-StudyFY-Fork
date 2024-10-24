@@ -79,13 +79,16 @@ const AbasGrupoMentoria = () => {
     <C.ContainerNavegacao>
 
       { isDesktop ? (
+
+<>
+        <C.nomeApp>Study<C.nomeAppAmarelo>FY</C.nomeAppAmarelo></C.nomeApp>
         
         <C.DivImgs>
         {todasImagens.map((item, index) => (
           <C.ImgDiv
             key={index}
             onClick={() => ClickImg(index)}
-            style={{ backgroundColor: imgAtiva === index ? '#d9d9d9' : 'transparent' }}
+            style={{ backgroundColor: imgAtiva === index ? '#FFFCE6' : 'transparent', border: imgAtiva === index ? 'solid 1px #fee101' : 'transparent' }}
           >
             <C.CampoIcone to={`/${urlsNavegacao[index]}`}>
             <C.AreaImg>
@@ -98,6 +101,7 @@ const AbasGrupoMentoria = () => {
           </C.ImgDiv>
         ))}
         </C.DivImgs>
+        </>
       ) : (
 
         <>
