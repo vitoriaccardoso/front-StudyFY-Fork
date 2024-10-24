@@ -13,8 +13,9 @@ const Emblemas = () => {
     <>
       {isDesktop ? (
         // Este bloco será renderizado em telas desktop (>= 768px)
-        <Container style={{ backgroundColor: 'red', alignItems: 'center', flexDirection: 'row' }}>
+        <Container style={{ backgroundColor: 'white', alignItems: 'center'}}>
           <Navegacao />
+          <CampoEmblemas/>
         </Container>
       ) : (
         // Este bloco será renderizado em telas menores (móveis/tablets < 768px)

@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { Link } from 'react-router-dom';
 
 export const ContainerNavegacao = styled.div`
   display: flex;
@@ -19,9 +20,59 @@ export const ContainerNavegacao = styled.div`
    width: 20%;
    border-left: 15px solid #fee101;
    border-right: 5px solid #fee101;
-
+   justify-content: center;
   }
 `;
+
+export const CampoIcone = styled(Link)`
+   height: 100%;
+   width: 100%;
+   align-items: center;
+   justify-content: center;
+   display: flex;
+   cursor: pointer; /* Mantém o comportamento de link */
+   border-radius: 8px;
+
+   
+   &:hover {
+      color: gray; /* Cor opcional para o estado de hover */
+   }
+
+     @media (min-width: 768px) {
+      gap: 5%;
+      padding-left: 10%;
+      text-decoration: none;
+   }
+`
+
+export const imgIcone = styled.img`
+   height: 70%;
+   width: 60%;
+
+   @media(min-width: 768px){
+      height: 70%;
+      width: 60%;
+   }
+`
+
+export const AreaImg = styled.div`
+   width: 25%;
+   height: 100%;
+   align-items: center;
+   display: flex;
+`
+
+export const AreaDescricao = styled.div`
+   display: flex;
+   flex-grow: 1;
+`
+
+export const DescricaoIcone = styled.span`
+   font-size: 0.9vw;
+   color: black;
+   font-weight: bold;
+   
+`
 
 // O restante do seu estilo não precisa ser alterado
 
@@ -30,14 +81,15 @@ export const ImgDiv = styled.div`
    display: flex;
    align-items: center;
    justify-content: center;
-   min-height: 100%;
+   height: 100%;
    width: 15%;
    border-radius: 8px;
    background-color: #666260; /* Cor padrão de fundo */
 
    @media (min-width: 768px) {
-      min-height: 10%;
+      height: 15%;
       width: 100%;
+      border-radius: 0px;
    }
 `;
 
@@ -46,8 +98,8 @@ export const ImgDivExtras = styled.div`
    display: flex;
    align-items: center;
    justify-content: center;
-   height: 17%;
-   width: 45%;
+   height: 80%;
+   width: 75%;
    border-radius: 8px;
    background-color: #666260;
 `;
@@ -61,9 +113,10 @@ export const DivImgs = styled.div`
 
    @media (min-width: 768px) {
       flex-direction: column;
-      gap: 2vh;
-      height: 80%;
+      height: 70%;
+      width: 100%;
       justify-content: flex-start;
+      padding-bottom: 10%;
    }
 `;
 
@@ -72,7 +125,7 @@ export const DivImagensExtras = styled.div`
    flex-direction: column;
    align-items: center;
    justify-content: space-evenly;
-   height: 320%;
+   height: 330%;
    width:18%;
    position: absolute; /* Posiciona em relação a DivImgs */
    bottom: 100%; /* Alinhamento com a parte superior de DivImgs */

@@ -11,7 +11,6 @@ import chat from '../../assets/chat.png';
 import chatIA from '../../assets/chatIA.png';
 import mentoria from '../../assets/mentoria.png';
 import usuario from '../../assets/user.png'
-import { Link } from 'react-router-dom';
 import { useMediaQuery } from '@mui/material';
 
 const AbasGrupoMentoria = () => {
@@ -53,6 +52,11 @@ const AbasGrupoMentoria = () => {
     { src: duvida, label: 'Dúvidas' },
   ];
 
+  const todasImagens = imagens.concat(imagensExtras);
+
+  console.log(todasImagens);
+  
+
   const urlsNavegacao = [
     'atividades',
     'caderno-virtual',
@@ -69,28 +73,46 @@ const AbasGrupoMentoria = () => {
     setMostrarImagens((prev) => !prev); // Alterna a visibilidade da div
   };
 
-  const isDesktop =  useMediaQuery(('min-width:'))
+  const isDesktop =  useMediaQuery('(min-width: 768px)')
 
   return (
     <C.ContainerNavegacao>
-      <C.DivImgs>
+
+      { isDesktop ? (
+        
+        <C.DivImgs>
+        {todasImagens.map((item, index) => (
+          <C.ImgDiv
+            key={index}
+            onClick={() => ClickImg(index)}
+            style={{ backgroundColor: imgAtiva === index ? '#d9d9d9' : 'transparent' }}
+          >
+            <C.CampoIcone to={`/${urlsNavegacao[index]}`}>
+            <C.AreaImg>
+              <C.imgIcone src={item.src} alt={`Imagem ${index + 1}`} />
+            </C.AreaImg>
+            <C.AreaDescricao>
+              <C.DescricaoIcone>{item.label}</C.DescricaoIcone>
+            </C.AreaDescricao>
+            </C.CampoIcone>
+          </C.ImgDiv>
+        ))}
+        </C.DivImgs>
+      ) : (
+
+        <>
+        <C.DivImgs>
         {imagens.map((item, index) => (
           <C.ImgDiv
             key={index}
             onClick={() => ClickImg(index)}
             style={{ backgroundColor: imgAtiva === index ? '#d9d9d9' : 'transparent' }}
           >
-            <Link style={{height: '100%', width: '100%', alignItems: 'center', justifyContent: 'center', display: 'flex'}} to={`/${urlsNavegacao[index]}`}>
-
-              <img style={{ height: '70%', width: '60%' }} src={item.src} alt={`Imagem ${index + 1}`} />
-            </Link>
+            <C.CampoIcone to={`/${urlsNavegacao[index]}`}>
+              <C.imgIcone src={item.src} alt={`Imagem ${index + 1}`} />
+            </C.CampoIcone>
           </C.ImgDiv>
         ))}
-        { isDesktop (
-
-        ) : (
-          
-        )}
         <C.DivImagensExtras mostrar={mostrarImagens}>
           {imagensExtras.map((item, index) => (
             <C.ImgDivExtras // Aplicando estilo na imagem extra também
@@ -98,14 +120,16 @@ const AbasGrupoMentoria = () => {
               onClick={() => ClickImgExtra(index)}
               style={{ backgroundColor: imgExtraAtiva === index ? '#d9d9d9' : 'transparent' }}
             >
-              <Link style={{height: '100%', width: '100%', alignItems: 'center', justifyContent: 'center', display: 'flex'}} to={`/${urlsNavegacao[index + 5]}`}>
-                <img style={{ height: '100%', width: '100%' }} src={item.src} alt={`Imagem Extra ${index + 1}`} />
-              </Link>
+              <C.CampoIcone to={`/${urlsNavegacao[index + 5]}`}>
+                <C.imgIcone src={item.src} alt={`Imagem Extra ${index + 1}`} />
+              </C.CampoIcone>
             </C.ImgDivExtras>
           ))}
         </C.DivImagensExtras>
       </C.DivImgs>
       <img src={mais} style={{ marginRight: '5vw' }} alt="Mais" onClick={MaisImagens} />
+      </>
+      )}
     </C.ContainerNavegacao>
   );
 };
