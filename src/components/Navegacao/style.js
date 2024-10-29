@@ -17,7 +17,7 @@ export const ContainerNavegacao = styled.div`
   @media(min-width: 768px) {
    flex-direction: column;
    height: 100%;
-   min-width: 20%;
+   min-width: 16%;
    border-right: 1px solid #d9d9d9;
    justify-content: flex-start;
    padding-top: 2%;
@@ -32,6 +32,8 @@ export const nomeApp = styled.span`
    font-weight: bold;
    width: 100%;
    text-align: start;
+   padding-left: 5%;
+
 `
 
 export const nomeAppAmarelo = styled.span`
@@ -48,13 +50,16 @@ export const CampoIcone = styled(Link)`
    border-radius: 8px;
 
    
-   &:hover {
-      color: gray; /* Cor opcional para o estado de hover */
-   }
+   ${({ imgAtiva, index }) => imgAtiva !== index && `
+      &:hover {
+         color: gray; /* Cor opcional para o estado de hover */
+      }
+   `}
 
      @media (min-width: 768px) {
       text-decoration: none;
       padding-left: 5%;
+      gap: 0.5vw;
    }
 `
 
@@ -90,21 +95,28 @@ export const DescricaoIcone = styled.span`
 // O restante do seu estilo não precisa ser alterado
 
 
+// Definindo o ImgDiv com hover e lógica condicional dentro do styled-components
 export const ImgDiv = styled.div`
-   display: flex;
-   align-items: center;
-   justify-content: center;
-   height: 100%;
-   width: 15%;
-   border-radius: 8px;
-   background-color: #666260; /* Cor padrão de fundo */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 15%;
+  border-radius: 8px;
 
-   @media (min-width: 768px) {
-      height: 10%;
-      width: 90%;
-      border-radius: 12px;
-   }
+  &:hover {
+    background-color: #f2f0f0 !important; /* Cor de fundo ao passar o mouse */
+  }
+
+  @media (min-width: 768px) {
+    height: 10%;
+    width: 90%;
+    border-radius: 12px;
+    background-color: ${({ imgAtiva, index }) => (imgAtiva === index ? '#FFFCE6' : 'transparent')};
+    border: ${({ imgAtiva, index }) => (imgAtiva === index ? 'solid 1px #fee101' : 'transparent')};
+  }
 `;
+
 
 
 export const ImgDivExtras = styled.div`
@@ -126,10 +138,11 @@ export const DivImgs = styled.div`
 
    @media (min-width: 768px) {
       flex-direction: column;
-      height: 70%;
+      height: 60%;
       width: 100%;
       justify-content: flex-start;
       padding-bottom: 10%;
+      gap: 1vh;
    }
 `;
 

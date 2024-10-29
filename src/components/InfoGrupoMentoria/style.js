@@ -10,6 +10,11 @@ export const InfoGrupo = styled.div`
    margin-top: 5vh;
    gap: 2vh;
    width: 100%;
+
+   @media(min-width: 768px){
+      width: 80%;
+      min-height: 32%;
+   }
 `;
 
 export const IntroducaoGrupo = styled.div`
@@ -18,6 +23,10 @@ export const IntroducaoGrupo = styled.div`
    height: 50%;
    width: 100%;
    justify-content: space-between;
+
+   @media(min-width: 768px){
+      height: 10%;
+   }
 `
 
 export const MentorDiv = styled.div`
@@ -65,7 +74,7 @@ export const DadosMentor = styled.div`
    justify-content: space-evenly;
 `
 
-export const IconeMembros = styled.div`
+export const InfoDetalheGrupo = styled.div`
    display: flex;
    flex-direction: column;
    background-color: #fee101;
@@ -75,7 +84,40 @@ export const IconeMembros = styled.div`
    width: 36%;
    height: 100%;
    justify-content: space-evenly;
-   align-items: center
+   align-items: center;
+
+   @media(min-width: 768px) {
+      box-shadow: none;
+      background-color: transparent;
+      border-radius:0px;
+      border: none;
+      position: relative;
+      width: 50%;
+      gap: 1vh;
+   }
+`
+
+export const FotoGrupoDiv = styled.div`
+display: flex;
+flex-direction: column;
+background-color: #fee101;
+border-radius: 8px;
+border: solid 3px #E9CE03;
+box-shadow: 0 0.5vh 0 0 #E9CE03;
+width: 36%;
+height: 100%;
+justify-content: space-evenly;
+align-items: center;
+
+@media(min-width: 768px) {
+   box-shadow: none;
+   background-color: transparent;
+   border-radius:0px;
+   border: none;
+   position: relative;
+   width: 50%;
+   gap: 1vh;
+}
 `
 
 export const DescricaoDiv = styled.div`
@@ -85,6 +127,13 @@ export const DescricaoDiv = styled.div`
    height: 100%;
    gap: 2vh;
    align-items: center;
+
+   @media(min-width: 768px){
+      width: 30%;
+      min-height: 100%;
+      background-color: pink;
+      flex-grow: 1;
+   }
 `;
 
 export const Descricao = styled.div`
@@ -95,6 +144,10 @@ export const Descricao = styled.div`
    box-shadow: 0 0.5vh 0 0 #d9d9d9;
    height: 100%;
    width: 100%;
+
+   @media(min-width: 768px){
+      background-color: green;
+   }
 `;
 
 export const AvaliacaoMentor = styled.div`
@@ -127,4 +180,43 @@ export const Estrelas = styled.div`
    flex-direction: row;
    height: 20%;
    width: 100%;
+`
+
+export const fundoAmarelo = styled.div`
+   position: absolute;
+   width: 100%;
+   height: 70%;
+   background-color: #fee101;
+   border-radius: 8px;
+   border: solid 3px #E9CE03;
+   box-shadow: 0 0.5vh 0 0 #E9CE03;
+   bottom: 0;   
+   z-index: 0; /* Aumenta o z-index */
+`;
+
+export const Membros = styled.span`
+   font-weight: bold;
+   font-size: 3.5vw;
+
+   @media(min-width: 768px){
+      font-size: 1.5vw;
+      z-index: 100;
+   }
+`
+
+export const IconeGrupo = styled.img`
+   width: 60%;
+   height: 60%;
+
+   @media(min-width: 768px){
+      width: 30%;
+      height: 30%;
+      z-index:100;
+   }
+`
+
+export const DescricaoTitulo = styled.span`
+   @media(min-width: 768px){
+      font-size: 1vw;
+   }
 `

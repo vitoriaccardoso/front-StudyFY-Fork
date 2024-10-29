@@ -133,7 +133,7 @@ export const AreaProgresso = styled.div`
    height: 12%;
    border-radius: 8px;
    width: 100%;
-   background-color: #d9d9d9;
+   background-color: #f2f0f0;
    position: relative;
    display: flex;
    align-items: center;

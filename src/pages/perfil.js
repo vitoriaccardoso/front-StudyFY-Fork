@@ -4,6 +4,7 @@ import Container from '../styles/telaCheia';
 import Navegacao from '../components/Navegacao'
 import TelaPadding from '../styles/TelaPadding';
 import TituloTela from '../styles/tituloTela';
+import CampoPerfil from '../components/CampoPerfil'
 
 
 const Perfil = () => {

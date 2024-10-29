@@ -87,6 +87,8 @@ const AbasGrupoMentoria = () => {
         {todasImagens.map((item, index) => (
           <C.ImgDiv
             key={index}
+            imgAtiva={imgAtiva}
+            index={index}
             onClick={() => ClickImg(index)}
             style={{ backgroundColor: imgAtiva === index ? '#FFFCE6' : 'transparent', border: imgAtiva === index ? 'solid 1px #fee101' : 'transparent' }}
           >

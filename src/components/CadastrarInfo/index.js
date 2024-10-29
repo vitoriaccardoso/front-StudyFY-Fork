@@ -142,10 +142,10 @@ const InserirInfoAluno = ({ AvancarEtapa, RetornarDados }) => {
             <img src={mascote} alt="mascote" style={{ width: '15%', minHeight: '100%' }} />
             <span style={{ fontSize: '2.5vw' }}>Cadastre-se</span>
           </div>
-          <C.Descricao>Para ter maior desempenho nos meus estudos</C.Descricao>
+          <C.Descricao>Para ter maior desempenho nos seus estudos</C.Descricao>
         </div>
       ) : (
-        <C.Descricao>Para ter maior desempenho nos meus estudos</C.Descricao>
+        <C.Descricao>Para ter maior desempenho nos seus estudos</C.Descricao>
       )}
         <C.CampoPreencher>
           <C.Campo erro={erros.nome}>

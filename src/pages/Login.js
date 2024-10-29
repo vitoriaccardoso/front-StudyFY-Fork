@@ -40,7 +40,7 @@ const LoginAluno = () => {
   const isDesktop = useMediaQuery('(min-width: 768px)');
 
   return (
-    <Container>
+    <Container style={{justifyContent: 'center'}}>
       {isDesktop ? (
         <Fundo src={fundoAmarelo}></Fundo>
       ) : (
