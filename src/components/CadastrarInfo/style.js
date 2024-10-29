@@ -31,7 +31,9 @@ export const CampoPreencher = styled.div`
    gap: 1vh;
 
    @media (min-width: 768px) {
-      height: 40%;
+      height: 50%;
+      padding-top: 5%;
+
    }
 `;
 
@@ -151,13 +153,15 @@ export const Botao = styled.div`
    background-color: #fee101;
    margin-left: auto;
    width: 50%;
-   min-height: 50%;
+   min-height: 135%;
+   bottom: -50%;
    max-height: 50%;
    border-radius: 12px;
    display: flex;
    font-weight: bold;
    align-items: center;
    justify-content: center;
+   position:  absolute;
 `
 
 export const EnvioFormuario = styled.div`
@@ -166,9 +170,9 @@ export const EnvioFormuario = styled.div`
    align-items: flex-end;
    justify-content: flex-end;
    gap: 1vh;
-   height: 20%;
-   width: 100%;
+   flex-grow: 1;
    margin-top: auto;
+   position: relative;
 `
 
 export const SemConta = styled.div`

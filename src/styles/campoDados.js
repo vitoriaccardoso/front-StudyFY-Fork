@@ -16,7 +16,8 @@ export const CampoDados = styled.div`
       border-radius: 12px;
       box-shadow: 0 0 12px 3px #dedede;
       padding: 3% 2% 5% 2%;
-   }
+      left: 36%;
+      }
 `;
 
 export default CampoDados

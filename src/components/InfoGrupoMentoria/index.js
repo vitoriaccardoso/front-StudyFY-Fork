@@ -15,20 +15,21 @@ const InfoGrupoMentoria = () => {
       { isDesktop? (
                 <C.IntroducaoGrupo>
                 <C.FotoGrupoDiv>
-                    <img src={fotoGrupo} alt='foto do grupo' style={{width: '60%', height: '60%'}}></img>
-                    <span style={{fontWeight: 'bold', fontSize: '3.5vw'}}>membros 10/30</span>
+                    <C.IconeGrupo src={fotoGrupo} alt='foto do grupo'></C.IconeGrupo>
+                    <C.Membros>membros 10/30</C.Membros>
+                    <C.fundoAmarelo/>
                 </C.FotoGrupoDiv>
                 <C.MentorDiv>
               <C.MentorGrupo>
-                <img alt='icone de mentor' style={{height: '80%', width: '20%'}} src={iconeMentor}></img>
-                <span>Mentor do grupo</span>
+                <C.IconeMentor alt='icone de mentor' src={iconeMentor}></C.IconeMentor>
+                <C.MentorGrupoTitulo>Mentor do grupo</C.MentorGrupoTitulo>
               </C.MentorGrupo>
               <C.CampoInfoMentor>
                 <C.DadosMentor>
-                  <img alt='foto do mentor' style={{height: '80%', width: '22%' }} src={fotoMentor}></img>
+                  <C.FotoMentor alt='foto do mentor' src={fotoMentor}></C.FotoMentor>
                   <C.InfoMentor>
-                    <h4 style={{fontSize: '3.5vw'}}>Matheus Noronha...</h4>
-                    <span style={{fontSize: '2.5vw'}}>20 membros ajudados</span>
+                    <C.NomeMentor>Matheus Noronha...</C.NomeMentor>
+                    <C.MembrosAjudados>20 membros ajudados</C.MembrosAjudados>
                   </C.InfoMentor>
                 </C.DadosMentor>
                 <C.AvaliacaoMentor>

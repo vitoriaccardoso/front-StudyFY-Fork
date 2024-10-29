@@ -18,7 +18,6 @@ const GrupoMentoria = () => {
         <Navegacao />
         <div style={{height: '100%', width: '100%', flexDirection: 'column'}}>
           <InfoGrupoMentoria />
-          <AbasGrupoMentoria />
         </div>
       </Container>
     ) : (

@@ -11,7 +11,7 @@ const EsqueceuSenha = () => {
     const isDesktop = useMediaQuery('(min-width: 768px)');
 
     return (
-    <Container style={{justifyContent: 'center'}}>
+    <Container>
         {isDesktop ? (
           <Fundo src={fundoAmarelo}></Fundo>
         ) : (
