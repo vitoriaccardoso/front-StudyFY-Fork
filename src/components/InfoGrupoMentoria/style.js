@@ -12,11 +12,13 @@ export const InfoGrupo = styled.div`
    width: 100%;
 
    @media(min-width: 768px){
-      width: 80%;
+      width: 70%;
+      height: 42%;
       min-height: 32%;
       padding-top: 3%;
       padding-right: 0%;
       align-items: start;
+      flex-direction: row;
    }
 `;
 
@@ -28,11 +30,10 @@ export const IntroducaoGrupo = styled.div`
    justify-content: space-between;
 
    @media(min-width: 768px){
-      max-height: 40vh;
+      height: 100%;
       width: 50%;
-      background-color: blue;
       flex-direction: column;
-      gap: 5vh;
+      gap: 3vh;
    }
 `
 
@@ -45,7 +46,6 @@ export const MentorDiv = styled.div`
 
    @media (min-width: 768px){
       width: 100%;
-      background-color: pink;
    }
 `
 
@@ -74,7 +74,7 @@ export const CampoInfoMentor = styled.div`
    padding-inline: 1vw;
 
    @media(min-width: 768px){
-   max-height: 10vh;
+   flex-grow: 1;
 }
 `
 
@@ -88,6 +88,7 @@ export const InfoMentor = styled.div`
    @media(min-width: 768px){
       width: 70%;
       padding-top: 0vh;
+      justify-content: center;
    }
 `
 
@@ -142,23 +143,19 @@ align-items: center;
    border: none;
    position: relative;
    width: 100%;
+   height: 70%;
    gap: 1vh;
 }
 `
 
 export const DescricaoDiv = styled.div`
    display: flex;
-   flex-direction: column;
    width: 55%;
    height: 100%;
-   gap: 2vh;
-   align-items: center;
 
    @media(min-width: 768px){
       width: 30%;
-      min-height: 100%;
       background-color: pink;
-      flex-grow: 1;
    }
 `;
 
@@ -189,6 +186,10 @@ export const Barra = styled.div`
    height: 70%;
    width: 2%;
    background-color: black;
+
+   @media(min-width: 768px){
+      min-width: 2%;
+   }
 `
 
 export const Avaliacao = styled.div`
@@ -206,6 +207,7 @@ export const Estrelas = styled.div`
    flex-direction: row;
    height: 20%;
    width: 100%;
+   justify-content: center;
 `
 
 export const fundoAmarelo = styled.div`
@@ -235,8 +237,8 @@ export const IconeGrupo = styled.img`
    height: 60%;
 
    @media(min-width: 768px){
-      width: 30%;
-      height: 30%;
+      max-width: 28%;
+      height: 80%;
       z-index:100;
    }
 `
@@ -252,8 +254,8 @@ export const IconeMentor = styled.img`
    width: 20%;
 
    @media(min-width: 768px){
-      height: 10%;
-      width: 15%;
+      height: 75%;
+      width: 11%;
    }
 `
 
@@ -266,6 +268,7 @@ export const FotoMentor = styled.img`
    width: 22%;
 
    @media(min-width: 768px){
+      width: 20%
    }
 `
 
@@ -273,7 +276,7 @@ export const NomeMentor = styled.span`
    font-size: 3.5vw;
    
    @media(min-width: 768px){
-      font-size: 1.5vw;
+      font-size: 1.3vw;
    }
 `
 
@@ -281,6 +284,31 @@ export const MembrosAjudados = styled.span`
    font-size: 2.5vw;
    
    @media(min-width:768px){
-      font-size: 1vw;
+      font-size: 0.8vw;
    }
 `
+
+export const AvaliacaoMedia = styled.span`
+   font-size: 2.5vw;
+   font-weight: bold;
+   
+   @media(min-width: 768px){
+      font-size: 1.5vw
+   }
+`
+
+export const Estrela = styled.img`
+   height: 100%;
+   width: 20%;
+
+   @media (min-width: 768px){
+      width: 16%;
+   }
+`
+
+export const QuantidadeAvaliacao = styled.span`
+   font-size: 2vw;
+   
+   @media(min-width: 768px){
+      font-size: 0.7vw
+   }`
