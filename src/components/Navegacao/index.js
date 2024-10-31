@@ -58,7 +58,7 @@ const AbasGrupoMentoria = () => {
   
 
   const urlsNavegacao = [
-    'atividades',
+    'tela-atividades',
     'caderno-virtual',
     'rank',
     'emblemas',
