@@ -154,8 +154,8 @@ export const DescricaoDiv = styled.div`
    height: 100%;
 
    @media(min-width: 768px){
-      width: 30%;
-      background-color: pink;
+      width: 100%;
+      height: 75%;
    }
 `;
 
@@ -167,10 +167,6 @@ export const Descricao = styled.div`
    box-shadow: 0 0.5vh 0 0 #d9d9d9;
    height: 100%;
    width: 100%;
-
-   @media(min-width: 768px){
-      background-color: green;
-   }
 `;
 
 export const AvaliacaoMentor = styled.div`
@@ -311,4 +307,42 @@ export const QuantidadeAvaliacao = styled.span`
    
    @media(min-width: 768px){
       font-size: 0.7vw
-   }`
+   }
+`
+
+export const OpcoesGrupo = styled.div`
+
+   @media(min-width:768px){
+      width: 100%;
+      justify-content: center;
+      display: flex;
+      gap: 8%;
+   }
+`
+
+export const BotaoSair = styled.div`
+
+   background-color: #FF3939;
+   border: 3px solid #A30909;
+   box-shadow: 0 0.5vh 0 0 #A30909;
+   border-radius: 8px;
+   align-items: center;
+   justify-content: center;
+   display: flex;
+   cursor: pointer;
+
+   @media (min-width: 768px){
+      width: 45%;
+      height: 100%;
+      padding: 2% 2% 2% 2%;
+   }
+`
+
+export const Sair = styled.span`
+
+   text-align: center;
+   color: white;
+   @media(min-width: 768px){
+      font-size: 1vw;
+   }
+`

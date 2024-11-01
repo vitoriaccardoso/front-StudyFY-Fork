@@ -49,9 +49,19 @@ const InfoGrupoMentoria = () => {
             </C.CampoInfoMentor>
           </C.MentorDiv>
         </C.IntroducaoGrupo>
+        <div style={{justifyContent: 'space-between', paddingTop: '6%', width: '30%', height: '100%', display: 'flex', flexDirection: 'column'}}>
+          <C.OpcoesGrupo>
+            <C.BotaoSair>
+              <C.Sair>Sair do grupo</C.Sair>
+            </C.BotaoSair>
+            <C.BotaoSair>
+              <C.Sair>Sair do grupo</C.Sair>
+            </C.BotaoSair>
+          </C.OpcoesGrupo>
         <C.DescricaoDiv>
           <C.Descricao>Noso grupo é focado e dedicado a garantir um bom ambiente para os estudos</C.Descricao>
         </C.DescricaoDiv>
+        </div>
         </>
       ) : (
         <>

@@ -11,6 +11,11 @@ export const AbasGrupo = styled.div`
    margin-top: 2vh;
    gap: 2vh;
    width: 100%;
+
+   @media(min-width: 768px){
+      padding-right: 0%;
+      width: 58.2%;
+   }
 `;
 
 export const Abas = styled.div`
