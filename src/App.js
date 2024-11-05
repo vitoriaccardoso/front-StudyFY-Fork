@@ -24,6 +24,8 @@ function App() {
     <C.Container>
       <Router>
         <Routes>
+          <Route exact path='/' element= {<Perfil/>} />
+          <Route path='/perfil' element={<Perfil/>} />
           <Route exact path='/' element= {<GrupoMentoria/>} />
           <Route path='/perfil' element={<Perfil/>}></Route>
           <Route path='/atividades' element= {<Atividades/>} />
