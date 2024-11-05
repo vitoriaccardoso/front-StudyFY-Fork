@@ -29,6 +29,8 @@ function App() {
           <Route path='/perfil' element={<Perfil/>} />
           <Route path='/tela-atividades' element={<TelaAtividades/>} />
           <Route path='/atividade' element= {<Atividade/>} />
+          <Route exact path='/' element= {<Perfil/>} />
+          <Route path='/perfil' element={<Perfil/>} />
           <Route exact path='/' element= {<GrupoMentoria/>} />
           <Route path='/perfil' element={<Perfil/>}></Route>
           <Route path='/atividades' element= {<Atividades/>} />
