@@ -6,7 +6,7 @@ import Login from './pages/Login';
 import GrupoMentoria from './pages/GrupoMentoria';
 import ChatIA from './pages/chatIA'
 import ChatPrivado from './pages/ChatPrivado'
-import Atividades from './pages/Atividades';
+import Atividade from './pages/Atividade';
 import Ajuda from './pages/Ajuda';
 import CadernoVirtual from './pages/CadernoVirtual';
 import Notificacao from './pages/Notificacao';
@@ -15,6 +15,7 @@ import Perfil from './pages/perfil';
 import EsqueceuSenha from './pages/EsqueceuSenha';
 import MudarSenha from './pages/MudarSenha'
 import Emblemas from './pages/Emblemas';
+import TelaAtividades from './pages/TelaAtividades';
 
 import * as C from './styles/app';
 
@@ -24,6 +25,10 @@ function App() {
     <C.Container>
       <Router>
         <Routes>
+          <Route exact path='/' element= {<TelaAtividades/>} />
+          <Route path='/perfil' element={<Perfil/>} />
+          <Route path='/tela-atividades' element={<TelaAtividades/>} />
+          <Route path='/atividade' element= {<Atividade/>} />
           <Route exact path='/' element= {<Perfil/>} />
           <Route path='/perfil' element={<Perfil/>} />
           <Route exact path='/' element= {<GrupoMentoria/>} />
