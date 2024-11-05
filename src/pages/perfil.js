@@ -4,115 +4,6 @@ import Container from '../styles/telaCheia';
 import Navegacao from '../components/Navegacao';
 import TituloTela from '../styles/tituloTela';
 import fotousuario from '../assets/fotousuario.png';
-
-const Perfil = () => {
-  return (
-    <Container
-      style={{
-        backgroundColor: 'white',
-        alignItems: 'center',
-        paddingTop: '1vh',
-        display: 'flex',
-        flexDirection: 'column',
-        height: '100vh',
-      }}
-    >
-      <TituloTela style={{ marginBottom: '0vh' }}>Perfil</TituloTela>
-
-      <div
-        style={{
-          flexGrow: '1',
-          width: '100%',
-          overflowY: 'auto',
-          display: 'flex',
-          flexDirection: 'column',
-          alignItems: 'center',
-        }}
-      >
-        {/* Container para o header com foto e caixa amarela */}
-        <div
-          style={{
-            display: 'flex',
-            width: '90%',
-            height: '230px',
-            flexDirection: 'column',
-            justifyContent: 'flex-end',
-            position: 'relative',
-            top: '10px',
-            alignItems: 'center',
-          }}
-        >
-          <img
-            style={{
-              height: '50%',
-              width: '30%',
-              zIndex: '3',
-              position: 'absolute',
-              top: '20px',
-              placeSelf: 'center',
-            }}
-            src={fotousuario}
-            alt="Foto do Usuário"
-          />
-
-          <div
-            style={{
-              display: 'flex',
-              width: '100%',
-              height: '80%',
-              backgroundColor: '#FEE101',
-              borderRadius: '8px',
-              justifyContent: 'center',
-              alignItems: 'end',
-              paddingBottom: '20px',
-            }}
-          >
-            <div style={{ textAlign: 'center' }}>
-              <h1 style={{ fontSize: '36px' }}>Silvia Santos</h1>
-              <h2 style={{ fontSize: '20px', fontWeight: 'lighter' }}>
-                Entrou em 2021
-              </h2>
-            </div>
-          </div>
-        </div>
-
-        {/* Seção com informações adicionais */}
-        <div
-          style={{
-            display: 'flex',
-            width: '90%',
-            paddingTop: '10px',
-            height: '200px',
-          }}
-        >
-          {/* Coluna de informações do usuário */}
-          <div style={{ flex: 1, paddingRight: '10px' }}>
-            <div style={{ height: '30%', width: '200px' }}>
-              <h2 style={{ fontSize: '20px' }}>Estudando</h2>
-              <p>História</p>
-            </div>
-
-            <div>
-              <h2 style={{ fontSize: '20px' }}>Série</h2>
-              <p>3º - Fundamental 1</p>
-            </div>
-
-            <div>
-              <h2 style={{ fontSize: '20px', paddingTop: '10px' }}>
-                Assunto no momento
-              </h2>
-              <p>Segunda Guerra Mundial</p>
-            </div>
-          </div>
-
-          {/* Coluna para aluno/mentor */}
-          <div style={{ flex: 1 }}>
-            <h2 style={{ fontSize: '20px', height: '60px' }}>Aluno/Mentor</h2>
-            <button style={{ backgroundColor: '#FEE101', height:'42px', width:'88px', border: 'black', padding: '5px', borderRadius: '5px', fontWeight: 'bold', cursor: 'pointer' }}>
-          Ver grupo <br/> 
-          de mentoria
-        </button>
-          </div>
 import Silvia from '../assets/silvia.png';
 import Estrelas from '../assets/estrela.png';
 import Pessoas from '../assets/pessoas.png';
@@ -120,11 +11,13 @@ import Emblema1 from '../assets/emblema1.png';
 import Emblema2 from '../assets/emblema2.png';
 import Calabreso from '../assets/calabreso.png';
 
+
+
 const Perfil = () => {
   return (
     <Container style={{ backgroundColor: 'white', alignItems: 'center', paddingTop: '1vh' }}>
       <TituloTela style={{ marginBottom: '2vh' }}>Perfil</TituloTela>
-      <div style={{ flexGrow: '1', width: '100%', backgroundColor: 'white', overflowY: 'auto', paddingInline: '5vw', color: 'white' }}>
+      <div className='teste' style={{ flexGrow: '1', width: '100%', backgroundColor: 'white', overflowY: 'auto', paddingInline: '5vw', color: 'white' }}>
         
         {/* Seção de perfil */}
         <div style={{ textAlign: 'center', padding: '2vh 0' }}>
@@ -231,19 +124,41 @@ const Perfil = () => {
               </div>
             </div>
              {/* Seção Meus Emblemas */}
-             <div style={{ marginTop: '30px', padding: '10px', textAlign: 'center', marginLeft: '-170px'}}>
-  <h3 style={{ color: '#302F2F', fontWeight: 'bold', marginBottom: '15px' }}>Meus Emblemas</h3>
-  <div style={{ display: 'flex', justifyContent: 'center'}}>
-    <div style={{ width: '70px', height: '70px', margin: '10px', backgroundColor: 'red', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-      <img src={Emblema1} alt="Emblema 1" style={{ width: '50px', height: '50px' }} />
-    </div>
-    <div style={{ width: '70px', height: '70px', margin: '10px', backgroundColor: 'red', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-      <img src={Emblema2} alt="Emblema 2" style={{ width: '50px', height: '50px' }} />
-    </div>
-    <div style={{ width: '70px', height: '70px', margin: '10px', backgroundColor: 'red', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-      <img src={Calabreso} alt="Emblema 1" style={{ width: '50px', height: '50px' }} />
-    </div>
-  </div>
+             <div style={{ marginTop: '30px', padding: '10px', textAlign: 'center', marginLeft: '-190px'}}>
+              
+    
+             <h3 style={{ color: '#302F2F', fontWeight: 'bold', marginLeft: '-215px' }}>Meus Emblemas</h3>
+
+{/* Ajuste o span para usar inline-block ou block para marginTop funcionar */}
+<span 
+  style={{ 
+    cursor: 'pointer', 
+    marginLeft: '-290px', 
+    color: 'black', 
+    fontSize: '16px', 
+    marginTop: '-60px', 
+    display: 'inline-block'  // Alterado para inline-block para o marginTop funcionar
+  }}
+>
+  Ver todos
+</span>
+
+{/* Emblemas */}
+<div style={{ display: 'flex', justifyContent: 'center'}}>
+<div style={{ width: '80px', height: '80px', margin: '10px', backgroundColor: '#71DDF5', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', borderRadius: '20%' }}>
+  <img src={Emblema1} alt="Emblema 1" style={{ width: '50px', height: '50px' }} />
+  <p style={{ marginTop: '5px', color: 'black', fontSize: '12px' }}>Nível 1</p> {/* Texto abaixo da imagem */}
+</div>
+<div style={{ width: '80px', height: '80px', margin: '10px', backgroundColor: '#56EE9C', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', borderRadius: '20%' }}>
+  <img src={Emblema2} alt="Emblema 2" style={{ width: '50px', height: '50px' }} />
+  <p style={{ marginTop: '5px', color: 'black', fontSize: '12px' }}>Nível 1</p> 
+</div>
+
+<div style={{ width: '80px', height: '80px', margin: '10px', backgroundColor: '#E9CE03', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', borderRadius: '20%' }}>
+  <img src={Calabreso} alt="Emblema 1" style={{ width: '50px', height: '50px' }} />
+  <p style={{ marginTop: '5px', color: 'black', fontSize: '12px' }}>Nível 1</p> 
+</div>
+</div>
 </div>
 
 

@@ -17,8 +17,10 @@ import MudarSenha from './pages/MudarSenha'
 import Emblemas from './pages/Emblemas';
 import MontagemAtividades from './pages/MontagemAtividades';
 import TelaAtividades from './pages/TelaAtividades';
+import Atividades from './pages/Atividade';
 
 import * as C from './styles/app';
+import Ranking from './pages/Ranking';
 
 function App() {
 
@@ -26,7 +28,7 @@ function App() {
     <C.Container>
       <Router>
         <Routes>
-          <Route exact path='/' element= {<MontagemAtividades/>} />
+          <Route exact path='/' element= {<Ranking/>} />
           <Route exact path='/' element= {<TelaAtividades/>} />
           <Route path='/perfil' element={<Perfil/>} />
           <Route path='/tela-atividades' element={<TelaAtividades/>} />
