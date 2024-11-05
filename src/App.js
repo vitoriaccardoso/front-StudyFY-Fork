@@ -15,6 +15,7 @@ import Perfil from './pages/perfil';
 import EsqueceuSenha from './pages/EsqueceuSenha';
 import MudarSenha from './pages/MudarSenha'
 import Emblemas from './pages/Emblemas';
+import MontagemAtividades from './pages/MontagemAtividades';
 import TelaAtividades from './pages/TelaAtividades';
 
 import * as C from './styles/app';
@@ -25,6 +26,7 @@ function App() {
     <C.Container>
       <Router>
         <Routes>
+          <Route exact path='/' element= {<MontagemAtividades/>} />
           <Route exact path='/' element= {<TelaAtividades/>} />
           <Route path='/perfil' element={<Perfil/>} />
           <Route path='/tela-atividades' element={<TelaAtividades/>} />
