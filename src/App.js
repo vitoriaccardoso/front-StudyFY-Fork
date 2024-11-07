@@ -21,6 +21,7 @@ import Atividades from './pages/Atividade';
 
 import * as C from './styles/app';
 import Ranking from './pages/Ranking';
+import Configuraçao from './pages/Configuracao';
 
 function App() {
 
@@ -28,7 +29,7 @@ function App() {
     <C.Container>
       <Router>
         <Routes>
-          <Route exact path='/' element= {<Ranking/>} />
+          <Route exact path='/' element= {<Configuraçao/>} />
           <Route exact path='/' element= {<TelaAtividades/>} />
           <Route path='/perfil' element={<Perfil/>} />
           <Route path='/tela-atividades' element={<TelaAtividades/>} />
