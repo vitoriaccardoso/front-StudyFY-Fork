@@ -19,6 +19,8 @@ import MontagemAtividades from './pages/MontagemAtividades';
 import TelaAtividades from './pages/TelaAtividades';
 import Atividades from './pages/Atividade';
 
+import VisualizacaoMentorias from './pages/visualizacaoMentoria';
+
 import * as C from './styles/app';
 import Ranking from './pages/Ranking';
 import Configuraçao from './pages/Configuracao';
@@ -37,6 +39,8 @@ function App() {
           <Route exact path='/' element= {<Perfil/>} />
           <Route path='/perfil' element={<Perfil/>} />
           <Route exact path='/' element= {<GrupoMentoria/>} />
+          <Route exact path='/' element= {<VisualizacaoMentorias/>} />
+          <Route exact path ='/visualizar-mentorias' element = {<VisualizacaoMentorias/>}/>
           <Route path='/perfil' element={<Perfil/>}></Route>
           <Route path='/atividades' element= {<Atividades/>} />
           <Route path='/caderno-virtual' element= {<CadernoVirtual/>} />
