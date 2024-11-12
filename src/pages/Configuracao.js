@@ -8,7 +8,7 @@ const Configuracao = () => {
     const [efeitosSonoros, setEfeitosSonoros] = useState(false);
     const [modoEscuro, setModoEscuro] = useState(false);
     const [lembretesSMS, setLembretesSMS] = useState(false);
-    const [lembretesEmail, setLembretesEmail] = useState(false);    
+    const [lembretesEmail, setLembretesEmail] = useState(false);
     const [notificacaoMembroGrupo, setNotificacaoMembroGrupo] = useState(false); // Novo estado
 
 
@@ -61,22 +61,26 @@ const Configuracao = () => {
     });
 
     return (
-        <Container style={{ backgroundColor: 'white', alignItems: 'center' }}>
-            <div style={{ flexGrow: '1', width: '100%', paddingInline: '5vw', overflowY: 'auto', paddingTop: '5vh' }}>
-                <div style={{ height: '25%', width: '100%', position: 'relative', display: 'flex', flexDirection: 'column', justifyContent: 'flex-end' }}>
+
+        <Container style={{ backgroundColor: 'white', alignItems: 'center', height: '100vh' }}>
+            <div className="configuracao" style={{
+                flexGrow: '1',
+                width: '100%',
+                paddingInline: '5vw',
+                overflowY: 'auto',
+                paddingTop: '5vh',
+                maxHeight: '90vh' // Define um limite de altura para permitir scroll
+            }}>
+                <div className='imagem' style={{ height: '25%', width: '100%', position: 'relative', display: 'flex', flexDirection: 'column', justifyContent: 'flex-end' }}>
                     <img src={Silvia} alt="Perfil" className="perfil-image" style={{ zIndex: 'auto', position: 'absolute', top: '0%', left: '34%' }} />
-                    <div
-                        style={{
-                            backgroundColor: '#FEE101', borderRadius: '10px', height: '70%', width: '100%',
-                            display: 'flex', alignItems: 'center', justifyContent: 'center'
-                        }}
-                    >
+                    <div className="quadradoAmarelo">
                         <h2 style={{ fontWeight: 'bold', marginTop: '50px' }}>Silvia Santos</h2>
                     </div>
                 </div>
 
+
                 {/* Campo Nome */}
-                <div style={{ position: 'relative', width: '100%', marginTop: '20px' }}>
+                <div className='informacaoNome' style={{ position: 'relative', width: '100%', marginTop: '20px' }}>
                     <label htmlFor="nomeInput" style={{
                         position: 'absolute', top: isFocused.nome ? '-10px' : '15px', left: '10px', fontSize: isFocused.nome ? '12px' : '16px', color: 'gray', transition: 'all 0.2s ease',
                         backgroundColor: isFocused.nome ? 'white' : 'transparent', padding: '0 5px', pointerEvents: 'none', marginTop: '1px'
@@ -143,7 +147,7 @@ const Configuracao = () => {
                 <h1 style={{
                     fontSize: '20px', textAlign: 'left', color: 'black', fontWeight: 'bold', marginTop: '20%', marginLeft: '10px'
                 }}>Notificações</h1>
-                  <button style={{
+                <button style={{
                     marginTop: '10px', width: '100%', padding: '10px', fontSize: '20px', fontWeight: 'bold', color: 'black', backgroundColor: '#FEE101',
                     border: 'none', borderRadius: '5vw', cursor: 'pointer', border: '1px solid black', boxShadow: '0px 4px 10px rgba(0, 0, 0, 0.6)'
                 }}>Programar lembrete</button>
@@ -171,16 +175,16 @@ const Configuracao = () => {
                 }}>Lembretes</h1>
 
 
-                 {/* Novo toggle para Notificação de Membro do Grupo */}
-                 <div style={{ display: 'grid', gridTemplateColumns: '1fr', borderRadius: '12px', border: '1px solid #E0E0E0', overflow: 'hidden', marginTop: '3%' }}>
-    <div style={{ display: 'flex', alignItems: 'center', padding: '15px', borderBottom: '1px solid #E0E0E0', justifyContent: 'space-between', textAlign: 'left' }}>
-        <h2 style={{ fontSize: '16px' }}>Um membro do seu grupo de <br/>mentoria enviou uma dúvida </h2>
-        <div style={toggleStyles(notificacaoMembroGrupo)} onClick={toggleNotificacaoMembroGrupo}>
-            <div style={knobStyles(notificacaoMembroGrupo)}></div>
-        </div>
-    </div>
-</div>
-</div>
+                {/* Novo toggle para Notificação de Membro do Grupo */}
+                <div style={{ display: 'grid', gridTemplateColumns: '1fr', borderRadius: '12px', border: '1px solid #E0E0E0', overflow: 'hidden', marginTop: '3%' }}>
+                    <div style={{ display: 'flex', alignItems: 'center', padding: '15px', borderBottom: '1px solid #E0E0E0', justifyContent: 'space-between', textAlign: 'left' }}>
+                        <h2 style={{ fontSize: '16px' }}>Um membro do seu grupo de <br />mentoria enviou uma dúvida </h2>
+                        <div style={toggleStyles(notificacaoMembroGrupo)} onClick={toggleNotificacaoMembroGrupo}>
+                            <div style={knobStyles(notificacaoMembroGrupo)}></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
             <Navegacao />
         </Container>
     );
