@@ -92,7 +92,7 @@ const Configuracao = () => {
                 </div>
 
                 {/* Campo Senha */}
-                <div style={{ position: 'relative', width: '100%', marginTop: '10px' }}>
+                <div className='informacaoSenha'style={{ position: 'relative', width: '100%', marginTop: '10px' }}>
                     <label htmlFor="senhaInput" style={{
                         position: 'absolute', top: isFocused.senha ? '-10px' : '15px', left: '10px', fontSize: isFocused.senha ? '12px' : '16px', color: 'gray', transition: 'all 0.2s ease',
                         backgroundColor: isFocused.senha ? 'white' : 'transparent', padding: '0 5px', pointerEvents: 'none', marginTop: '1px'
@@ -104,7 +104,7 @@ const Configuracao = () => {
                 </div>
 
                 {/* Campo Email */}
-                <div style={{ position: 'relative', width: '100%', marginTop: '10px' }}>
+                <div className='informacaoEmail' style={{ position: 'relative', width: '100%', marginTop: '10px' }}>
                     <label htmlFor="emailInput" style={{
                         position: 'absolute', top: isFocused.email ? '-10px' : '15px', left: '10px', fontSize: isFocused.email ? '12px' : '16px', color: 'gray',
                         transition: 'all 0.2s ease', backgroundColor: isFocused.email ? 'white' : 'transparent', padding: '0 5px', pointerEvents: 'none', marginTop: '1px'
@@ -116,11 +116,11 @@ const Configuracao = () => {
                 </div>
 
                 {/* Botão Acompanhamento e Sair */}
-                <button style={{
+                <button className='botaoA' style={{
                     marginTop: '20px', width: '100%', padding: '10px', fontSize: '20px', fontWeight: 'bold', color: 'black', backgroundColor: '#FEE101',
                     border: 'none', borderRadius: '5vw', cursor: 'pointer', border: '1px solid black', boxShadow: '0px 4px 10px rgba(0, 0, 0, 0.6)'
                 }}>Acompanhamento</button>
-                <button style={{
+                <button className='botaoS' style={{
                     marginTop: '10px', width: '100%', padding: '10px', fontSize: '20px', fontWeight: 'bold', color: 'black', backgroundColor: '#FEE101',
                     border: 'none', borderRadius: '5vw', cursor: 'pointer', border: '1px solid black', boxShadow: '0px 4px 10px rgba(0, 0, 0, 0.6)'
                 }}>Sair</button>

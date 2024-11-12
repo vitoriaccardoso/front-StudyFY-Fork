@@ -34,33 +34,111 @@
 }
 
 
-@media (min-width: 768px) {
-  .perfil-image {
-   
-    width: 25%; /* Ajuste conforme necessário */
-    height: 150%;
-        padding-left: 10%;
-  }
+/* Estilo para o contêiner da imagem */
+.imagem {
+    height: 25%;
+    width: 100%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
 
-  
-  }
+/* Estilo para a imagem de perfil */
+.perfil-image {
+    z-index: auto;
+    position: absolute;
+    top: 0%;
+    left: 34%;
+    margin-left: 10%;
+    margin-top: -4%;
+}
 
-  .quadradoAmarelo {
+/* Estilo para o quadrado amarelo com nome */
+.quadradoAmarelo {
+    margin-top: 2%;
+    display: flex;
     background-color: #FEE101;
     border-radius: 10px;
-    height: 70%;
+    height: 15vh;
     width: 100%;
-    display: flex;
     align-items: center;
     justify-content: center;
-  }
-  
-  @media (min-width: 768px) {
-    .quadradoAmarelo {
-      height: 6%;
-      width: 100%;
-    }
-  }
+}
+
+.quadradoAmarelo h2 {
+    font-weight: bold;
+    margin-top: 50px;
+}
+
+/* Estilos para os campos de entrada */
+.informacaoNome, .informacaoSenha, .informacaoEmail {
+    position: relative;
+    width: 100%;
+    margin-top: 10%;
+}
+
+input {
+    background-color: white;
+    color: black;
+    padding: 10px;
+    width: 100%;
+    font-size: 16px;
+    border-radius: 3vw;
+    border: 1px solid #ccc;
+    outline: none;
+}
+
+label {
+    position: absolute;
+    top: 15px;
+    left: 10px;
+    font-size: 16px;
+    color: gray;
+    transition: all 0.2s ease;
+    pointer-events: none;
+}
+
+label.focused {
+    top: -10px;
+    font-size: 12px;
+    background-color: white;
+    padding: 0 5px;
+}
+
+/* Estilo para os botões */
+button {
+    width: 100%;
+    padding: 10px;
+    font-size: 20px;
+    font-weight: bold;
+    color: black;
+    background-color: #FEE101;
+    border: none;
+    border-radius: 5vw;
+    cursor: pointer;
+    border: 1px solid black;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.6);
+    margin-top: 10px;
+}
+
+.botaoA {
+    margin-top: 20px;
+}
+
+.botaoS {
+    margin-top: 10px;
+}
+
+/* Estilo para o foco nos campos de input */
+input:focus + label,
+input:not(:focus) + label.focused {
+    top: -10px;
+    font-size: 12px;
+    background-color: white;
+    padding: 0 5px;
+}
+
 
   
   
